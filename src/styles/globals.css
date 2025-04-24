@@ -1,3 +1,21 @@
+@font-face {
+    font-family: bold;
+    src: url(../../public/fonts/Product\ Sans\ Bold.ttf);
+}
+
+@font-face {
+    font-family: regular;
+    src: url(../../public/fonts/Product\ Sans\ Regular.ttf);
+}
+@font-face {
+    font-family: medium;
+    src: url(../../public/fonts/ProductSans-Medium.ttf);
+}
+
+html{
+    font-family: "regular";
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
