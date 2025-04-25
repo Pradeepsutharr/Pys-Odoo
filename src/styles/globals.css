@@ -1,21 +1,107 @@
 @font-face {
-    font-family: bold;
-    src: url(../../public/fonts/Product\ Sans\ Bold.ttf);
-}
-
-@font-face {
-    font-family: regular;
-    src: url(../../public/fonts/Product\ Sans\ Regular.ttf);
+  font-family: bold;
+  src: url(../../public/fonts/Product\ Sans\ Bold.ttf);
 }
 @font-face {
-    font-family: medium;
-    src: url(../../public/fonts/ProductSans-Medium.ttf);
+  font-family: regular;
+  src: url(../../public/fonts/Product\ Sans\ Regular.ttf);
 }
-
-html{
-    font-family: "regular";
+@font-face {
+  font-family: medium;
+  src: url(../../public/fonts/ProductSans-Medium.ttf);
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .col-1 {
+    @apply w-1/12;
+  }
+  .col-2 {
+    @apply w-2/12;
+  }
+  .col-3 {
+    @apply w-3/12;
+  }
+  .col-4 {
+    @apply w-4/12;
+  }
+  .col-5 {
+    @apply w-5/12;
+  }
+  .col-6 {
+    @apply w-6/12;
+  }
+  .col-7 {
+    @apply w-7/12;
+  }
+  .col-8 {
+    @apply w-8/12;
+  }
+  .col-9 {
+    @apply w-9/12;
+  }
+  .col-10 {
+    @apply w-10/12;
+  }
+  .col-11 {
+    @apply w-11/12;
+  }
+  .col-12 {
+    @apply w-full;
+  }
+}
+
+html {
+  font-family: "regular";
+}
+
+/* Hero Start */
+
+.hero {
+  background-image: url("../../public/images/hero-bg.png");
+  background-size: cover;
+}
+
+header {
+  background-color: rgba(240, 244, 255, 1);
+  /* backdrop-filter: blur(16px); */
+}
+
+.header-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  animation: header 1s ease-out;
+  background: rgba(246, 248, 255, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+@keyframes header {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.heading h1 {
+  background-image: url(../../public/images/hero-text-shape.svg);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center 95%;
+}
+
+/* why-choose-us */
+section.why-choose-us {
+  background: linear-gradient(
+    270deg,
+    rgba(81, 41, 244, 0.1) 0%,
+    rgba(62, 255, 209, 0.1) 100%
+  );
+}

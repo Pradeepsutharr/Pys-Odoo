@@ -10,6 +10,7 @@ module.exports = {
   ],
   theme: {
     extend: {
+      
 
       fontFamily:{
         bold:['"bold"', 'sans-serif'],
@@ -36,7 +37,10 @@ module.exports = {
           'xl': '1280px',
           '2xl': '1300px',
       }
-  }
+  },
+  animation: {
+    'slow-spin': 'spin 4s linear infinite',
+  },
     },
   },
   plugins: [],
