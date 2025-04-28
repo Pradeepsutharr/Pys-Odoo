@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section className="hero py-20 ">
       <div className="container relative text-center ">
-        <div className="absolute lg:left-10 left-[40%] w-20 h-20 lg:top-[-8%] top-[-20%]">
+        <div className="absolute lg:left-10 left-[40%] w-20 h-20 lg:top-[-8%] top-[-20%] md:block hidden">
           <Image
             className="animate-slow-spin object-contain"
             src="/images/Decorative_cube.png"
