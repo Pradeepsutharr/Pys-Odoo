@@ -9,10 +9,10 @@ const OurServices = () => {
       style={{ backgroundColor: "#F6F9FC" }}
     >
       <div className="container">
-        <div className="flex flex-wrap justify-between gap-20">
-          <div className="col-12 lg:col-5 md:col-6">
+        <div className="flex flex-wrap justify-between ">
+          <div className="col-12 lg:col-5 md:col-12">
             <div className="content sticky top-20">
-              <span className="capitalize text-primary font-regular">
+              <span className="capitalize text-primary font-regular bg-gray-100 py-2 px-4 rounded-full">
                 our top notch services
               </span>
 
@@ -35,9 +35,14 @@ const OurServices = () => {
             </div>
           </div>
 
-          <div className="col-12 lg:col-5 md:col-6">
+          <div className="col-12 lg:col-6 md:col-12">
             <ul className="po-services-list flex flex-col space-y-6">
-              <li className="lg:ms-10 po-service-item py-8 px-5 lg:max-h-32 flex items-center bg-white shadow-md rounded-xl border-r-4 border-[#1AD3BB]">
+              <li
+                data-aos="zoom-in-up"
+                data-aos-duration="800"
+                data-aos-easing="ease-out-back"
+                className="lg:ms-10 po-service-item py-8 px-5 lg:max-h-32 flex items-center bg-white shadow-md rounded-xl border-r-4 border-[#1AD3BB]"
+              >
                 <span className="bg-[#1AD3BB] min-w-14 min-h-14 rounded-full flex items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +84,12 @@ const OurServices = () => {
                 </div>
               </li>
 
-              <li className="lg:me-10 po-service-item py-8 px-5 lg:max-h-32 flex items-center bg-white shadow-md rounded-xl border-r-4 border-primary">
+              <li
+                data-aos="zoom-in-up"
+                data-aos-duration="800"
+                data-aos-easing="ease-out-back"
+                className="lg:me-10 po-service-item py-8 px-5 lg:max-h-32 flex items-center bg-white shadow-md rounded-xl border-r-4 border-primary"
+              >
                 <span className="bg-primary min-w-14 min-h-14 rounded-full flex items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -117,7 +127,12 @@ const OurServices = () => {
                 </div>
               </li>
 
-              <li className=" lg:ms-10 po-service-item py-8 px-5 lg:max-h-32 flex items-center bg-white shadow-md rounded-xl border-r-4 border-[#1AD3BB]">
+              <li
+                data-aos="zoom-in-up"
+                data-aos-duration="800"
+                data-aos-easing="ease-out-back"
+                className=" lg:ms-10 po-service-item py-8 px-5 lg:max-h-32 flex items-center bg-white shadow-md rounded-xl border-r-4 border-[#1AD3BB]"
+              >
                 <span className="bg-[#1AD3BB] min-w-14 min-h-14 rounded-full flex items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -154,7 +169,12 @@ const OurServices = () => {
                 </div>
               </li>
 
-              <li className="lg:me-10 po-service-item py-8 px-5 lg:max-h-32 flex items-center bg-white shadow-md rounded-xl border-r-4 border-primary">
+              <li
+                data-aos="zoom-in-up"
+                data-aos-duration="800"
+                data-aos-easing="ease-out-back"
+                className="lg:me-10 po-service-item py-8 px-5 lg:max-h-32 flex items-center bg-white shadow-md rounded-xl border-r-4 border-primary"
+              >
                 <span className="bg-primary min-w-14 min-h-14 rounded-full flex items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -194,7 +214,12 @@ const OurServices = () => {
                 </div>
               </li>
 
-              <li className=" lg:ms-10 po-service-item py-8 px-5 lg:max-h-32 flex items-center bg-white shadow-md rounded-xl border-r-4 border-[#1AD3BB]">
+              <li
+                data-aos="zoom-in-up"
+                data-aos-duration="800"
+                data-aos-easing="ease-out-back"
+                className=" lg:ms-10 po-service-item py-8 px-5 lg:max-h-32 flex items-center bg-white shadow-md rounded-xl border-r-4 border-[#1AD3BB]"
+              >
                 <span className="bg-[#1AD3BB] min-w-14 min-h-14 rounded-full flex items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -218,7 +243,12 @@ const OurServices = () => {
                 </div>
               </li>
 
-              <li className="lg:me-10 po-service-item py-8 px-5 lg:max-h-32 flex items-center bg-white shadow-md rounded-xl border-r-4 border-primary">
+              <li
+                data-aos="zoom-in-up"
+                data-aos-duration="800"
+                data-aos-easing="ease-out-back"
+                className="lg:me-10 po-service-item py-8 px-5 lg:max-h-32 flex items-center bg-white shadow-md rounded-xl border-r-4 border-primary"
+              >
                 <span className="bg-primary min-w-14 min-h-14 rounded-full flex items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

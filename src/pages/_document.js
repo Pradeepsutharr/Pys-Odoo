@@ -11,6 +11,10 @@ export default function Document() {
           integrity="sha512-...your-integrity-code..."
           crossOrigin="anonymous"
         />
+        <link
+          href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+          rel="stylesheet"
+        ></link>
       </Head>
       <body>
         <Main />

@@ -19,7 +19,7 @@ function Navbar() {
     <header>
       {/* Desktop Navbar */}
       <div
-        className={`hidden md:flex justify-between items-center px-10 py-4 mx-auto container-fluid ${
+        className={`hidden lg:flex justify-between items-center px-10 py-4 mx-auto container-fluid ${
           headerFixed ? "header-fixed" : ""
         }`}
       >
@@ -70,7 +70,7 @@ function Navbar() {
 
       {/* Mobile Navbar */}
       <div
-        className={`flex justify-between items-center md:hidden px-3 py-4 mx-auto ${
+        className={`flex justify-between items-center lg:hidden px-3 py-4 mx-auto ${
           headerFixed ? "header-fixed" : ""
         }`}
       >

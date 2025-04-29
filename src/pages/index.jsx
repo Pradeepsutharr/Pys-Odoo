@@ -3,6 +3,10 @@ import Hero from "../components/hero";
 import "@/styles/globals.css";
 import OurServices from "@/components/ourServices";
 import WhyChooseUs from "@/components/whyChooseUs";
+import Industries from "@/components/industries";
+import Testimonials from "@/components/testimonials";
+import GetStarted from "@/components/getStarted";
+import TalkToExpert from "@/components/talkToExpert";
 
 export default function Home() {
   return (
@@ -18,6 +22,10 @@ export default function Home() {
           <Hero />
           <OurServices />
           <WhyChooseUs />
+          <Industries />
+          <Testimonials />
+          <GetStarted />
+          <TalkToExpert />
         </main>
       </div>
     </>

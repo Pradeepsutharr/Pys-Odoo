@@ -18,44 +18,60 @@
 @layer utilities {
   .col-1 {
     @apply w-1/12;
+    padding: 0.75rem;
   }
   .col-2 {
     @apply w-2/12;
+    padding: 0.75rem;
   }
   .col-3 {
     @apply w-3/12;
+    padding: 0.75rem;
   }
   .col-4 {
     @apply w-4/12;
+    padding: 0.75rem;
   }
   .col-5 {
     @apply w-5/12;
+    padding: 0.75rem;
   }
   .col-6 {
     @apply w-6/12;
+    padding: 0.75rem;
   }
   .col-7 {
     @apply w-7/12;
+    padding: 0.75rem;
   }
   .col-8 {
     @apply w-8/12;
+    padding: 0.75rem;
   }
   .col-9 {
     @apply w-9/12;
+    padding: 0.75rem;
   }
   .col-10 {
     @apply w-10/12;
+    padding: 0.75rem;
   }
   .col-11 {
     @apply w-11/12;
+    padding: 0.75rem;
   }
   .col-12 {
     @apply w-full;
+    padding: 0.75rem;
   }
 }
 
 html {
   font-family: "regular";
+}
+
+.p-0 {
+  padding: 0;
 }
 
 /* Hero Start */
@@ -97,11 +113,35 @@ header {
   background-position: center 95%;
 }
 
-/* why-choose-us */
+/* why-choose-us sec */
 section.why-choose-us {
   background: linear-gradient(
     270deg,
     rgba(81, 41, 244, 0.1) 0%,
     rgba(62, 255, 209, 0.1) 100%
   );
+}
+
+/* industries section */
+
+.po-industry-card {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-10);
+  }
+}
+
+/* testimonials */
+
+.po-testimonial-slider .mySwiper {
+  padding: 1rem;
+}
+
+/* talk to expert */
+.talk-to-expert {
+  background-image: url(../../public/images/talk-to-expert-bg.png);
+  background-size: cover;
+  background-position: center;
 }
