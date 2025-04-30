@@ -66,10 +66,10 @@ const Testimonials = () => {
               prevEl: ".custom-prev",
               nextEl: ".custom-next",
             }}
-            autoplay={{
-              delay: 2000,
-              disableOnInteraction: false,
-            }}
+            // autoplay={{
+            //   delay: 2000,
+            //   disableOnInteraction: false,
+            // }}
             breakpoints={{
               320: {
                 slidesPerView: 1,

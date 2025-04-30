@@ -7,6 +7,7 @@ import Industries from "@/components/industries";
 import Testimonials from "@/components/testimonials";
 import GetStarted from "@/components/getStarted";
 import TalkToExpert from "@/components/talkToExpert";
+import BlogSection from "@/components/blogList";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
           <Testimonials />
           <GetStarted />
           <TalkToExpert />
+          <BlogSection />
         </main>
       </div>
     </>
