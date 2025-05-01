@@ -13,11 +13,11 @@ const Hero = () => {
             src="/images/Decorative_cube.png"
             alt="decorative cube"
             fill
-            sizes="(max-width: 768px) 40px, 64px"
+            // sizes="(max-width: 768px) 40px, 64px"
           />
         </div>
 
-        <div className="heading col-12 lg:col-10 mx-auto">
+        <div className="hero-headline col-12 lg:col-10 mx-auto">
           <h1 className="capitalize leading-snug text-5xl lg:text-[90px] font-bold text-center">
             <SplitText
               text="simplify your business with odoo ERP"

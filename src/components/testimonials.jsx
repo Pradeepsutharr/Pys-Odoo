@@ -58,7 +58,7 @@ const Testimonials = () => {
 
         <div className="po-testimonial-slider lg:col-11 md:col-11 col-12 mx-auto">
           <Swiper
-            className="mySwiper "
+            className="mySwiper"
             spaceBetween={30}
             loop={true}
             modules={[Pagination, Navigation, Autoplay]}
@@ -98,7 +98,7 @@ const Testimonials = () => {
             ))}
           </Swiper>
 
-          <div className="flex justify-end gap-4 mb-4">
+          <div className="flex justify-end gap-4 mt-4">
             <button className="custom-prev bg-gray-200 hover:bg-primary duration-200 text-white p-2  w-12 h-12">
               Prev
             </button>

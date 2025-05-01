@@ -34,27 +34,27 @@ const BlogSection = () => {
   return (
     <section className="py-20">
       <div className="container">
-        <div className="flex justify-between items-end">
-          <div>
+        <div className="flex justify-between items-end md:px-2 px-2">
+          <div className="">
             <span className="text-primary font-regular capitalize bg-gray-100 py-2 px-4 rounded-full">
-              why us
+              blogs
             </span>
 
-            <h2 className="mt-6 capitalize text-heading text-4xl font-bold">
-              why choose pysquad
+            <h2 className="mt-6 capitalize text-heading text-3xl md:text-4xl font-bold">
+              featured blogs
             </h2>
           </div>
           <div>
             <Link
               href=""
-              className="inline-block capitalize text-white bg-primary py-2 px-3"
+              className="inline-block capitalize text-primary font-medium py-2 px-3"
             >
               view all blogs
             </Link>
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-between -mx-2">
+        <div className="flex flex-wrap justify-center -mx-2">
           {isLoading
             ? Array(3)
                 .fill(null)
