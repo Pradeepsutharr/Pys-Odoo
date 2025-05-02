@@ -1,7 +1,11 @@
 import React from "react";
 
-const Index = () => {
-  return <div></div>;
+const Blogs = () => {
+  return (
+    <section>
+      <div className="container"></div>
+    </section>
+  );
 };
 
-export default Index;
+export default Blogs;

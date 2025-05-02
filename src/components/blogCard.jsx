@@ -1,12 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
-const BlogCard = ({ id, title, description, tag, date, imageUrl }) => {
+const BlogCard = ({ slug, title, description, tag, date, imageUrl }) => {
   return (
-    <Link href={`/blogs/${id}`}>
+    <Link href={`/blogs/${slug}`}>
       <div className="bg-white rounded-xl shadow-lg overflow-hidden p-4 cursor-pointer">
         <div className="relative w-full ">
-          <img src={imageUrl} alt={title} className="" />
+          {imageUrl ? (
+            <img src={imageUrl} alt={title} className="" />
+          ) : (
+            <Skeleton height={192} />
+          )}
         </div>
 
         <div className=" space-y-5 mt-7">
@@ -14,12 +20,12 @@ const BlogCard = ({ id, title, description, tag, date, imageUrl }) => {
             <span className="bg-gray-100 px-2 py-0.5 rounded">{tag}</span>
             <span className="flex items-center gap-1">📅 {date}</span>
           </div>
-          <h3 className="text-lg font-bold text-gray-800 truncate capitalize">
+          <h3 className="text-lg font-bold text-gray-800 capitalize">
             {title}
           </h3>
-          <p className=" font-regular text-paragraph line-clamp-3">
+          {/* <p className=" font-regular text-paragraph line-clamp-3">
             {description}
-          </p>
+          </p> */}
           <span className="text-primary font-medium text-sm hover:underline inline-block">
             Read More →
           </span>
