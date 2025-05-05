@@ -2,36 +2,14 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import BlogCard from "./blogCard";
 import Skeleton from "react-loading-skeleton";
+import { useBlogs } from "@/context/blogContext";
 
 const BlogSection = () => {
-  const [blogs, setBlogs] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { blogs, isLoading } = useBlogs();
 
-  useEffect(() => {
-    fetch("https://backend.pysquad.com/api/v1/blogs/")
-      .then((response) => response.json())
-      .then((data) => {
-        const erpBlogs = data
-          .filter((post) => post.category?.title === "ERP")
-          .map((post) => ({
-            id: post.id,
-            title: post.title,
-            slug: post.slug,
-            description: post.body,
-            tag: post.category?.title,
-            date: post.modified,
-            imageUrl: post.bg_image,
-          }));
-
-        const latestBlogs = erpBlogs.slice(0, 3);
-        setBlogs(latestBlogs);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching blogs:", error);
-        setIsLoading(false);
-      });
-  }, []);
+  const erpBlogs = blogs
+    ?.filter((blog) => blog.category?.title === "ERP")
+    .slice(0, 3);
 
   return (
     <section className="py-20 bg-[#F6F9FC]">
@@ -74,12 +52,18 @@ const BlogSection = () => {
                     />
                   </div>
                 ))
-            : blogs.map((blog) => (
+            : erpBlogs.map((blog) => (
                 <div
                   key={blog.slug}
                   className="col-12 md:col-6 xl:col-4 lg:col-4 px-2 mb-6"
                 >
-                  <BlogCard {...blog} />
+                  <BlogCard
+                    slug={blog.slug}
+                    title={blog.title}
+                    imageUrl={blog.bg_image}
+                    tag={blog.category.title}
+                    date={blog.modified}
+                  />
                 </div>
               ))}
         </div>

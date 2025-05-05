@@ -3,7 +3,7 @@ import Link from "next/link";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-const BlogCard = ({ slug, title, description, tag, date, imageUrl }) => {
+const BlogCard = ({ slug, title, tag, date, imageUrl }) => {
   return (
     <Link href={`/blogs/${slug}`}>
       <div className="bg-white rounded-xl shadow-lg overflow-hidden p-4 cursor-pointer">

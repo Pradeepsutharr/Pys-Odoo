@@ -1,0 +1,33 @@
+import axios from "axios";
+import { createContext, useContext, useEffect, useState } from "react";
+
+const BlogContext = createContext();
+
+export const BlogProvider = ({ children }) => {
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await axios.get(
+          "https://backend.pysquad.com/api/v1/blogs/"
+        );
+        setBlogs(response.data);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchBlogs();
+  }, []);
+
+  return (
+    <BlogContext.Provider value={{ blogs, loading }}>
+      {children}
+    </BlogContext.Provider>
+  );
+};
+
+export const useBlogs = () => useContext(BlogContext);

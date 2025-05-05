@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Layout from "../components/layout";
 import "@/styles/globals.css";
 import AOS from "aos";
+import { BlogProvider } from "@/context/blogContext";
 
 export default function App({ Component, pageProps }) {
   useEffect(() => {
@@ -9,8 +10,10 @@ export default function App({ Component, pageProps }) {
   }, []);
 
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <BlogProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </BlogProvider>
   );
 }
