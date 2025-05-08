@@ -158,3 +158,10 @@ section.why-choose-us {
   background-size: cover;
   background-position: center;
 }
+
+/* blog details */
+.blog-hero-sec {
+  background-image: url(../../public/images/blog-hero-bg.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}

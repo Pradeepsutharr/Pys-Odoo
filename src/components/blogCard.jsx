@@ -7,7 +7,7 @@ const BlogCard = ({ slug, title, tag, date, imageUrl }) => {
   return (
     <Link href={`/blogs/${slug}`}>
       <div className="bg-white rounded-xl shadow-lg overflow-hidden p-4 cursor-pointer">
-        <div className="relative w-full ">
+        <div className="relative w-full">
           {imageUrl ? (
             <img src={imageUrl} alt={title} className="" />
           ) : (
