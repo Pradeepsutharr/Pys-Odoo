@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import "@/styles/globals.css";
-import SplitText from "../components/splitText";
+import SplitText from "../splitText";
 
 const Hero = () => {
   return (

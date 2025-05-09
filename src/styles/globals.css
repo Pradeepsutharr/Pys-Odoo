@@ -165,3 +165,11 @@ section.why-choose-us {
   background-repeat: no-repeat;
   background-size: 100%;
 }
+
+/* services */
+.service-hero {
+  background-image: url(../../public/images/service-hero-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
