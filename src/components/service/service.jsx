@@ -43,7 +43,11 @@ const Service = () => {
                 </p>
 
                 <Link
-                  href={`/service-details?id=${s.id}`}
+                  href={{
+                    pathname: "/service-details",
+                    query: { id: s.id },
+                  }}
+                  as="/service-details"
                   className="inline-flex items-center gap-2 mt-6 text-sm text-primary bg-gray-200 px-4 py-2 rounded-md hover:bg-primary hover:text-white transition z-10 relative"
                 >
                   Read More

@@ -1,10 +1,14 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import "@/styles/globals.css";
+import { useRouter } from "next/router";
 
 function Navbar() {
   const [headerFixed, setHeaderFixed] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const route = useRouter();
+  const path = route.pathname;
 
   useEffect(() => {
     function handleScroll() {
@@ -30,16 +34,36 @@ function Navbar() {
         </div>
 
         <nav className="flex gap-6">
-          <Link href="/" className="font-medium hover:text-primary">
+          <Link
+            href="/"
+            className={`font-medium hover:text-primary ${
+              path === "/" ? "text-primary" : ""
+            }`}
+          >
             Home
           </Link>
-          <Link href="/services" className="font-medium hover:text-primary">
+          <Link
+            href="/services"
+            className={`font-medium hover:text-primary ${
+              (path === "/services", "/service-details" ? "text-primary" : "")
+            }`}
+          >
             Services
           </Link>
-          <Link href="/industries" className="font-medium hover:text-primary">
+          <Link
+            href="/industries"
+            className={`font-medium hover:text-primary ${
+              path === "/industries" ? "text-primary" : ""
+            }`}
+          >
             Industries
           </Link>
-          <Link href="/contactUs" className="font-medium hover:text-primary">
+          <Link
+            href="/contactUs"
+            className={`font-medium hover:text-primary ${
+              path === "/contactUs" ? "text-primary" : ""
+            }`}
+          >
             Contact Us
           </Link>
         </nav>

@@ -167,7 +167,8 @@ section.why-choose-us {
 }
 
 /* services */
-.service-hero {
+.service-hero,
+.service-detail-hero {
   background-image: url(../../public/images/service-hero-bg.png);
   background-repeat: no-repeat;
   background-size: cover;
