@@ -19,7 +19,7 @@ module.exports = {
       colors: {
         primary: "#714B67",
         secondary: "#F7F7F7",
-        heading: "#111827",
+        heading: "#0A2540",
         paragraph: "#737887",
       },
       spacing: {

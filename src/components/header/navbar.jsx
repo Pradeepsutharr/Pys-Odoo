@@ -37,7 +37,7 @@ function Navbar() {
           <Link
             href="/"
             className={`font-medium hover:text-primary ${
-              path === "/" ? "text-primary" : ""
+              path === "/" ? "text-primary" : "text-heading"
             }`}
           >
             Home
@@ -45,7 +45,9 @@ function Navbar() {
           <Link
             href="/services"
             className={`font-medium hover:text-primary ${
-              (path === "/services", "/service-details" ? "text-primary" : "")
+              path === "/services" || path === "/service-details"
+                ? "text-primary"
+                : "text-heading"
             }`}
           >
             Services
@@ -53,7 +55,7 @@ function Navbar() {
           <Link
             href="/industries"
             className={`font-medium hover:text-primary ${
-              path === "/industries" ? "text-primary" : ""
+              path === "/industries" ? "text-primary" : "text-heading"
             }`}
           >
             Industries
@@ -61,7 +63,7 @@ function Navbar() {
           <Link
             href="/contactUs"
             className={`font-medium hover:text-primary ${
-              path === "/contactUs" ? "text-primary" : ""
+              path === "/contactUs" ? "text-primary" : "text-heading"
             }`}
           >
             Contact Us

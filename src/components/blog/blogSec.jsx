@@ -7,10 +7,6 @@ import { useBlogs } from "@/context/blogContext";
 const BlogSection = () => {
   const { blogs, isLoading } = useBlogs();
 
-  const erpBlogs = blogs
-    ?.filter((blog) => blog.category?.title === "ERP")
-    .slice(0, 3);
-
   return (
     <section className="py-20 bg-[#F6F9FC]">
       <div className="container">
@@ -52,9 +48,9 @@ const BlogSection = () => {
                     />
                   </div>
                 ))
-            : erpBlogs.map((blog) => (
+            : blogs.slice(0, 3).map((blog, i) => (
                 <div
-                  key={blog.slug}
+                  key={i}
                   className="col-12 md:col-6 xl:col-4 lg:col-4 px-2 mb-6"
                 >
                   <BlogCard
