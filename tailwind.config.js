@@ -12,7 +12,7 @@ module.exports = {
     extend: {
       fontFamily: {
         bold: ['"bold"', "sans-serif"],
-        regular: ['"regular"', "sans-serif"],
+        regular: ['"normal"', "sans-serif"],
         medium: ['"medium"', "sans-serif"],
       },
 

@@ -5,7 +5,7 @@ import Skeleton from "react-loading-skeleton";
 import { useBlogs } from "@/context/blogContext";
 
 const BlogSection = () => {
-  const { blogs, isLoading } = useBlogs();
+  const { blogs, loading } = useBlogs();
 
   return (
     <section className="py-20 bg-[#F6F9FC]">
@@ -22,7 +22,7 @@ const BlogSection = () => {
           </div>
           <div>
             <Link
-              href=""
+              href="/blogs"
               className="inline-block capitalize text-primary font-medium py-2 px-3"
             >
               view all blogs
@@ -31,7 +31,7 @@ const BlogSection = () => {
         </div>
 
         <div className="flex flex-wrap justify-center -mx-2">
-          {isLoading
+          {loading
             ? Array(3)
                 .fill(null)
                 .map((_, i) => (

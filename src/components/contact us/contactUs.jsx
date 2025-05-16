@@ -1,0 +1,264 @@
+import React from "react";
+import { useState } from "react";
+import axios from "axios";
+import Link from "next/link";
+
+const ContactPage = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState(null);
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    try {
+      const response = await axios.post(
+        "https://backend.pysquad.com/api/v1/contact/pysquad/",
+        formData
+      );
+      setStatus("success");
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error submitting contact form:", error);
+      setStatus("error");
+    }
+  };
+
+  return (
+    <section className="bg-[#f9f9f9]">
+      <div className="flex flex-col items-center bg-[#151922] justify-center py-20 text-center">
+        <h1 className="text-6xl font-bold text-white mb-2">Contact Us</h1>
+        <p className="text-paragraph font-regular text-xl mt-5 max-w-4xl">
+          Every great solution starts with a simple conversation. Whether you
+          have a question, an idea, or a challenge to solve — let’s connect and
+          create something remarkable together.
+        </p>
+
+        <div className="social-contact flex gap-4 mt-8">
+          <button className="text-heading hover:bg-[#0077B5] hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </button>
+          <button className="text-heading hover:bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-600 hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
+            <i class="fa-brands fa-instagram"></i>
+          </button>
+          <button className="text-heading hover:bg-[#1877F2] hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
+            <i class="fa-brands fa-facebook-f"></i>
+          </button>
+          <button className="text-heading hover:bg-black hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
+            <i class="fa-brands fa-x-twitter"></i>
+          </button>
+        </div>
+      </div>
+      <div className="container">
+        <div className="col-12 text-center my-12">
+          <div className="flex flex-wrap justify-center gap-6 mt-10">
+            <div className="col-12 md:col-6 lg:col-3">
+              <Link
+                href="https://www.google.com/maps/place/PySquad+Informatics+LLP/@23.0386088,72.5096226,15z/data=!4m6!3m5!1s0x395e9bfc8ecadbcf:0x6df3775da9ff0330!8m2!3d23.0386088!4d72.5096226!16s%2Fg%2F11qm6hh762?entry=ttu"
+                className="contact-card hover:bg-primary duration-300 lg:min-h-60 grid place-content-center bg-white shadow-lg rounded-2xl p-6 text-center"
+              >
+                <div className="bg-primary icon text-3xl mb-3 min-w-14 min-h-14 rounded-full grid place-content-center mx-auto">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="28"
+                    height="36"
+                    viewBox="0 0 30 38"
+                    fill="none"
+                  >
+                    <path
+                      className="icon-fill"
+                      d="M28.5233 8.59163C26.0346 3.37428 20.9057 0.0771208 15.1325 0.00132395C9.34668 -0.0744729 4.21776 3.10899 1.64067 8.33897C-1.03748 13.7584 -0.40584 20.0369 3.3082 24.749L12.8965 36.927C13.1358 37.2308 13.4409 37.4764 13.7888 37.6452C14.1367 37.814 14.5184 37.9018 14.9051 37.9018C15.2918 37.9018 15.6735 37.814 16.0214 37.6452C16.3694 37.4764 16.6744 37.2308 16.9137 36.927L26.7547 24.4205C30.3298 19.8727 30.9993 13.8216 28.5233 8.60426V8.59163ZM24.784 22.8541L14.8925 35.3605L5.30419 23.1825C2.20915 19.2537 1.67857 13.9858 3.91458 9.46329C6.06215 5.11761 10.1678 2.54052 14.9177 2.54052H15.1072C19.9835 2.61631 24.1523 5.28184 26.2494 9.69068C28.3464 14.0995 27.8032 19.0137 24.784 22.8541Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M14.9053 7.78308C11.1028 7.78308 8.00781 10.8781 8.00781 14.6806C8.00781 18.4831 11.1028 21.5781 14.9053 21.5781C18.7078 21.5781 21.8028 18.4831 21.8028 14.6806C21.8028 10.8781 18.7078 7.78308 14.9053 7.78308ZM14.9053 19.0389C13.7643 19.0115 12.6792 18.5389 11.8819 17.7222C11.0845 16.9055 10.6382 15.8093 10.6382 14.668C10.6382 13.5266 11.0845 12.4304 11.8819 11.6137C12.6792 10.797 13.7643 10.3244 14.9053 10.297C16.0464 10.3244 17.1315 10.797 17.9288 11.6137C18.7261 12.4304 19.1724 13.5266 19.1724 14.668C19.1724 15.8093 18.7261 16.9055 17.9288 17.7222C17.1315 18.5389 16.0464 19.0115 14.9053 19.0389Z"
+                      fill="#FDDE77"
+                    />
+                  </svg>
+                </div>
+                <h4 className="font-bold text-heading mb-1">Our Location</h4>
+                <address className="text-paragraph">
+                  A 605, Shilp Aaron, Sindhu Bhavan Road, Ahmedabad,IN 380054,
+                  India
+                </address>
+              </Link>
+            </div>
+
+            <div className="col-12 md:col-6 lg:col-3">
+              <Link
+                href="tel:91 9898295005"
+                className="contact-card hover:bg-primary duration-300 lg:min-h-60 grid place-content-center bg-white shadow-lg rounded-2xl p-6 text-center"
+              >
+                <div className="bg-primary icon text-3xl mb-3 min-w-14 min-h-14 rounded-full grid place-content-center mx-auto">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="33"
+                    viewBox="0 0 37 38"
+                    fill="none"
+                  >
+                    <path
+                      className="icon-fill"
+                      d="M29.2574 22.9535C28.4988 22.1637 27.5838 21.7414 26.614 21.7414C25.6521 21.7414 24.7293 22.1558 23.9394 22.9457L21.4682 25.4092C21.2648 25.2997 21.0615 25.198 20.866 25.0963C20.5844 24.9556 20.3185 24.8226 20.0918 24.6818C17.7769 23.2116 15.6732 21.2956 13.6555 18.8165C12.6779 17.5809 12.021 16.5407 11.5439 15.485C12.1852 14.8984 12.7796 14.2884 13.3583 13.7019C13.5773 13.4829 13.7963 13.2561 14.0152 13.0372C15.6575 11.3949 15.6575 9.2677 14.0152 7.6254L11.8802 5.49041C11.6378 5.24798 11.3875 4.99772 11.1529 4.74747C10.6837 4.2626 10.191 3.76209 9.68267 3.29286C8.92408 2.54209 8.0169 2.14325 7.0628 2.14325C6.1087 2.14325 5.18589 2.54209 4.40384 3.29286L4.3882 3.3085L1.72923 5.99092C0.728204 6.99194 0.157308 8.21194 0.0321802 9.62744C-0.155512 11.911 0.517051 14.0382 1.0332 15.4302C2.30012 18.8478 4.19268 22.0151 7.01588 25.4092C10.4413 29.4993 14.5627 32.7291 19.2706 35.0049C21.0693 35.8573 23.4702 36.8661 26.1526 37.0382C26.3169 37.046 26.4889 37.0538 26.6453 37.0538C28.4519 37.0538 29.969 36.4047 31.1577 35.1144C31.1656 35.0987 31.1812 35.0909 31.189 35.0753C31.5957 34.5826 32.0649 34.1368 32.5576 33.6597C32.8939 33.3391 33.238 33.0028 33.5743 32.6509C34.3485 31.8454 34.7552 30.9069 34.7552 29.945C34.7552 28.9753 34.3407 28.0446 33.5508 27.2626L29.2574 22.9535ZM32.0571 31.1885C32.0493 31.1963 32.0493 31.1885 32.0571 31.1885C31.7521 31.5169 31.4393 31.8141 31.103 32.1426C30.5947 32.6274 30.0785 33.1358 29.5937 33.7067C28.8038 34.5513 27.8731 34.9501 26.6531 34.9501C26.5358 34.9501 26.4107 34.9501 26.2934 34.9423C23.9707 34.7937 21.8123 33.8865 20.1934 33.1123C15.767 30.9695 11.8802 27.9273 8.65037 24.0719C5.98358 20.8576 4.2005 17.8859 3.01961 14.6951C2.2923 12.7478 2.02641 11.2306 2.14371 9.79949C2.22192 8.8845 2.57384 8.12591 3.22294 7.47681L5.88973 4.81003C6.27294 4.45029 6.6796 4.25478 7.07845 4.25478C7.57114 4.25478 7.96998 4.55195 8.22024 4.80221L8.2437 4.82567C8.72075 5.27144 9.17434 5.73285 9.65139 6.22554C9.89382 6.47579 10.1441 6.72605 10.3943 6.98412L12.5293 9.11911C13.3583 9.94808 13.3583 10.7145 12.5293 11.5435C12.3025 11.7703 12.0836 11.997 11.8568 12.216C11.1998 12.8886 10.5742 13.5142 9.89382 14.1242C9.87818 14.1399 9.86254 14.1477 9.85472 14.1633C9.18216 14.8359 9.30729 15.4928 9.44806 15.9386L9.47152 16.0089C10.0268 17.3541 10.8088 18.621 11.9975 20.1303L12.0054 20.1382C14.1638 22.7971 16.4396 24.8695 18.95 26.4571C19.2706 26.6604 19.5991 26.8247 19.9119 26.9811C20.1934 27.1218 20.4593 27.2548 20.6861 27.3956C20.7174 27.4112 20.7487 27.4347 20.78 27.4503C21.0459 27.5832 21.2961 27.6458 21.5542 27.6458C22.2033 27.6458 22.6099 27.2391 22.7429 27.1062L25.4175 24.4316C25.6834 24.1657 26.1057 23.8451 26.5984 23.8451C27.0833 23.8451 27.4821 24.1501 27.7246 24.416L27.7402 24.4316L32.0493 28.7407C32.8548 29.5384 32.8548 30.3595 32.0571 31.1885Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M25.3941 11.6139C23.9082 10.128 22.0469 9.15823 19.9979 8.81413C19.4192 8.72028 19.0438 8.16503 19.1455 7.59413C19.2472 7.02324 19.7868 6.64004 20.3655 6.73388C22.8446 7.15619 25.1047 8.32926 26.8956 10.1201C28.6865 11.911 29.8596 14.1711 30.2819 16.6502C30.3757 17.229 29.9925 17.7764 29.4138 17.8702C29.3512 17.8781 29.2965 17.8859 29.2339 17.8859C28.7256 17.8859 28.2798 17.5261 28.1938 17.01C27.8419 14.961 26.88 13.0997 25.3941 11.6139Z"
+                      fill="#FDDE77"
+                    />
+                    <path
+                      d="M31.408 5.59209C34.3642 8.54823 36.288 12.263 36.9841 16.3452C37.0857 16.9161 36.6947 17.4636 36.1238 17.5496C36.0612 17.5574 36.0065 17.5652 35.9439 17.5652C35.4356 17.5652 34.9898 17.2055 34.9038 16.6893C34.286 13.045 32.5655 9.7213 29.9221 7.07798C27.2788 4.44248 23.9551 2.71416 20.3108 2.09634C19.732 1.99467 19.3488 1.45506 19.4427 0.876348C19.5443 0.305453 20.084 -0.0855704 20.6549 0.0160957C24.7372 0.712118 28.4519 2.63595 31.408 5.59209Z"
+                      fill="#FDDE77"
+                    />
+                  </svg>
+                </div>
+                <h4 className="font-bold text-heading mb-1">Phone Number</h4>
+                <p className="text-paragraph">+ 91 9898295005</p>
+              </Link>
+            </div>
+
+            <div className="col-12 md:col-6 lg:col-3">
+              <Link
+                href="mailto:solutions@pysquad.com"
+                className="contact-card hover:bg-primary duration-300 lg:min-h-60 grid place-content-center bg-white shadow-lg rounded-2xl p-6 text-center"
+              >
+                <div className="bg-primary icon text-3xl mb-3 min-w-14 min-h-14 rounded-full grid place-content-center mx-auto">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="35"
+                    height="25"
+                    viewBox="0 0 37 27"
+                    fill="none"
+                  >
+                    <path
+                      className="icon-fill"
+                      d="M33.748 0H3.25195C1.46251 0 0 1.45608 0 3.25195V22.7637C0 24.5602 1.46345 26.0156 3.25195 26.0156H33.748C35.5375 26.0156 37 24.5595 37 22.7637V3.25195C37 1.45565 35.5368 0 33.748 0ZM33.2487 2.16797L19.34 16.122C18.9162 16.5471 18.084 16.5474 17.66 16.122L3.75131 2.16797H33.2487ZM2.16797 22.3651V3.6505L11.4949 13.0078L2.16797 22.3651ZM3.75131 23.8477L13.0254 14.5433L16.1246 17.6525C17.3946 18.9267 19.606 18.9262 20.8755 17.6525L23.9746 14.5434L33.2487 23.8477H3.75131ZM34.832 22.3651L25.5051 13.0078L34.832 3.6505V22.3651Z"
+                      fill="white"
+                    />
+                  </svg>
+                </div>
+                <h4 className="font-bold text-heading mb-1">Email us at</h4>
+                <p className="text-paragraph">solutions@pysquad.com</p>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div className="col-12 flex flex-col md:flex-row items-center bg-primary text-white p-6 rounded-2xl">
+          <div className="w-full md:w-1/2 p-4">
+            <h3 className="text-sm text-yellow-300 capitalize font-regular rounded-full inline-block">
+              Get in Touch
+            </h3>
+            <h2 className="text-3xl font-bold mb-6">
+              We’d love to hear from you – let’s talk.
+            </h2>
+            <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+              <div className="flex flex-col md:flex-row gap-4">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="flex-1 p-3 rounded-lg text-black"
+                  required
+                />
+                <input
+                  type="text"
+                  name="phone"
+                  placeholder="Phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="flex-1 p-3 rounded-lg text-black"
+                  required
+                />
+              </div>
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                className="p-3 rounded-lg text-black"
+                required
+              />
+              <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                value={formData.subject}
+                onChange={handleChange}
+                className="p-3 rounded-lg text-black"
+                required
+              />
+              <textarea
+                name="message"
+                placeholder="Message"
+                value={formData.message}
+                onChange={handleChange}
+                className="p-3 h-32 rounded-lg text-black"
+                required
+              ></textarea>
+              <button
+                type="submit"
+                className="bg-yellow-300 text-black py-3 px-6 rounded-lg font-bold w-full self-center"
+              >
+                {status === "loading" ? "Sending..." : "Submit Now"}
+              </button>
+              {status === "success" && (
+                <p className="text-white text-center">
+                  Message sent successfully!
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-red-300 text-center">
+                  Something went wrong. Please try again.
+                </p>
+              )}
+            </form>
+          </div>
+
+          <div className="w-full md:w-1/2 p-4">
+            <img
+              src="/contact-image.jpg"
+              alt="Contact"
+              className="rounded-2xl"
+            />
+          </div>
+        </div>
+      </div>
+      <div className="col-12 mt-12">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.578955645993!2d72.5095582!3d23.039226799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6df3775da9ff0330!2sPySquad%20Informatics%20LLP!5e0!3m2!1sen!2sin!4v1655980345753!5m2!1sen!2sin"
+          width="100%"
+          height="400"
+          className=" w-full"
+          allowFullScreen=""
+          loading="lazy"
+        ></iframe>
+      </div>
+    </section>
+  );
+};
+
+export default ContactPage;

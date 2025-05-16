@@ -1,15 +1,17 @@
-import { useRouter } from "next/router";
+import React from "react";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import "@/styles/globals.css";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import Image from "next/image";
 import { useBlogs } from "@/context/blogContext";
-import parse, { domToReact } from "html-react-parser";
+import parse from "html-react-parser";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { CopyToClipboard } from "react-copy-to-clipboard";
 import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import "@/styles/globals.css";
+import Link from "next/link";
+
 const BlogDetails = () => {
   const router = useRouter();
   const { slug } = router.query;
@@ -32,111 +34,45 @@ const BlogDetails = () => {
       });
   }, [slug]);
 
+  const CodeBlock = ({ code, language }) => {
+    const [copied, setCopied] = useState(false);
+
+    const handleCopy = () => {
+      navigator.clipboard.writeText(code);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    };
+
+    return (
+      <div className="relative group mb-4">
+        <button
+          onClick={handleCopy}
+          className="absolute top-2 right-2 bg-gray-800 text-white text-xs px-2 py-1 rounded hover:bg-gray-600 z-10"
+        >
+          {copied ? "Copied!" : "Copy"}
+        </button>
+        <SyntaxHighlighter
+          language="python"
+          style={atomDark}
+          customStyle={{ borderRadius: "8px", paddingTop: "2rem" }}
+        >
+          {code}
+        </SyntaxHighlighter>
+      </div>
+    );
+  };
+
   const renderHTMLWithCode = (htmlContent) => {
     return parse(htmlContent, {
       replace: (node) => {
-        if (node.name === "pre" && node.children?.[0]?.name === "code") {
-          const rawCode = node.children[0].children[0]?.data || "";
-          const classAttr = node.children[0].attribs?.class || "";
+        if (node.name === "pre" && node.children?.[0]?.data) {
+          const rawCode = node.children[0].data;
+
+          const classAttr = node.attribs?.class || "";
           const languageMatch = classAttr.match(/language-(\w+)/);
           const language = languageMatch ? languageMatch[1] : "text";
 
-          return (
-            // <div className="relative mb-6 group bg-[#f4f4f5] rounded-xl overflow-x-auto">
-            //   <CopyToClipboard text={rawCode}>
-            //     <button className="absolute top-2 right-2 p-1 rounded bg-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity">
-            //       Copy
-            //     </button>
-            //   </CopyToClipboard>
-            //   <SyntaxHighlighter
-            //     language="python"
-            //     style={atomDark}
-            //     customStyle={{
-            //       padding: "1rem",
-            //       fontSize: "0.875rem",
-            //       background: "black",
-            //       margin: 0,
-            //     }}
-            //   >
-            //     {rawCode}
-            //   </SyntaxHighlighter>
-            // </div>
-
-            <div className="code-block-wrapper group bg-[#282c34]">
-              <CopyToClipboard text={rawCode}>
-                <button className="code-copy-btn">Copy</button>
-              </CopyToClipboard>
-              <SyntaxHighlighter
-                language={language}
-                style={atomDark}
-                customStyle={{
-                  borderRadius: "0.75rem",
-                  padding: "1rem",
-                  fontSize: "0.875rem",
-                  background: "#282c34",
-                  margin: 0,
-                }}
-              >
-                {rawCode}
-              </SyntaxHighlighter>
-            </div>
-          );
-        }
-
-        if (node.type === "tag") {
-          const headingMap = {
-            h2: "text-xl font-bold text-heading mt-6 mb-2",
-            h3: "text-lg font-semibold text-primary mt-5 mb-2",
-            h4: "text-base font-medium text-heading mt-4 mb-2",
-          };
-
-          if (headingMap[node.name]) {
-            return (
-              <div className={headingMap[node.name]}>
-                {domToReact(node.children)}
-              </div>
-            );
-          }
-
-          if (node.name === "p") {
-            return (
-              <p className="text-paragraph leading-relaxed mb-4">
-                {domToReact(node.children)}
-              </p>
-            );
-          }
-
-          if (node.name === "ul") {
-            return (
-              <ul className="list-disc ml-6 mb-4 text-paragraph">
-                {domToReact(node.children)}
-              </ul>
-            );
-          }
-
-          if (node.name === "ol") {
-            return (
-              <ol className="list-decimal ml-6 mb-4 text-paragraph">
-                {domToReact(node.children)}
-              </ol>
-            );
-          }
-
-          if (node.name === "li") {
-            return (
-              <li className="mb-2 leading-relaxed text-paragraph">
-                {domToReact(node.children)}
-              </li>
-            );
-          }
-
-          if (node.name === "code" && node.parent?.name !== "pre") {
-            return (
-              <code className="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono">
-                {domToReact(node.children)}
-              </code>
-            );
-          }
+          return <CodeBlock code={rawCode} language={language} />;
         }
       },
     });
@@ -145,73 +81,132 @@ const BlogDetails = () => {
   if (isLoading || !blogDetails) {
     return (
       <div className="container py-20">
-        <Skeleton height={50} count={1} />
-        <Skeleton height={300} />
-        <Skeleton count={5} />
+        <div className="flex justify-between">
+          <div className="col-12 lg:col-8">
+            <Skeleton baseColor="#E6EBFB" height={300} count={1} />
+            <Skeleton baseColor="#E6EBFB" count={2} />
+            <Skeleton baseColor="#E6EBFB" width={700} />
+            <Skeleton baseColor="#E6EBFB" width={500} />
+          </div>
+          <div className="lg:col-4 col-12">
+            <Skeleton baseColor="#E6EBFB" height={50} />
+            <Skeleton baseColor="#E6EBFB" count={5} height={100} />
+          </div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="container py-10">
-      <div className="flex flex-col lg:flex-row gap-10">
-        <div className="col-12 lg:col-8 bg-white rounded-xl shadow-sm">
-          <Image
-            src={blogDetails.bg_image}
-            alt="Blog Banner"
-            width={1140}
-            height={300}
-            className="w-full h-auto rounded-t-xl"
-          />
+    <section className="py-10 relative">
+      <div className="container relative">
+        <div className="flex flex-col lg:flex-row gap-10">
+          <div className="col-12 lg:col-8 bg-white rounded-xl shadow-sm">
+            {loading ? (
+              <Skeleton baseColor="#E6EBFB" height={300} />
+            ) : (
+              <Image
+                src={blogDetails.bg_image}
+                alt="Blog Banner"
+                width={1140}
+                height={300}
+                className="w-full h-auto rounded-lg"
+              />
+            )}
 
-          <div className="p-4 space-y-3">
-            <h1 className="text-2xl text-heading font-bold">
-              {blogDetails?.title}
-            </h1>
-            <p className="text-sm text-paragraph font-regular">
-              {blogDetails?.modified} | {blogDetails?.read_time}
-            </p>
-          </div>
-
-          <div className="p-4 space-y-4 text-paragraph font-regular">
-            {renderHTMLWithCode(blogDetails.content)}
-          </div>
-        </div>
-
-        <div className="col-12 lg:col-4 space-y-6">
-          <div className="bg-secondary p-4 rounded-xl shadow-sm">
-            <h2 className="font-bold text-heading text-lg mb-4">Feeds</h2>
-            {blogDetails?.feeds?.map((feed, i) => (
-              <div key={i} className="flex gap-4 mb-4">
-                <Image
-                  src={feed.img || "/placeholder.jpg"}
-                  alt={feed.title}
-                  width={80}
-                  height={80}
-                  className="rounded-md"
-                />
-                <p className="text-sm font-medium text-heading">{feed.title}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="bg-secondary p-4 rounded-xl shadow-sm">
-            <h2 className="font-bold text-heading text-lg mb-4">Tags</h2>
-            {/* Future tag rendering logic */}
-          </div>
-
-          <div className="bg-secondary p-4 rounded-xl shadow-sm">
-            <h2 className="font-bold text-heading text-lg mb-4">Follow Us</h2>
-            <div className="flex gap-4">
-              <button className="text-primary">LinkedIn</button>
-              <button className="text-primary">Instagram</button>
-              <button className="text-primary">Facebook</button>
-              <button className="text-primary">Twitter</button>
+            <div className="p-4 space-y-3">
+              <h1 className="text-2xl text-heading font-bold">
+                {blogDetails?.title}
+              </h1>
+              <p className="text-sm text-paragraph font-regular mr-2">
+                <span>
+                  <i className="fa-solid fa-calendar-days mr-2 text-primary"></i>
+                  {blogDetails?.modified}
+                </span>{" "}
+                <span className="mx-3">|</span>
+                <span>
+                  <i className="fa-solid fa-clock-rotate-left mr-2 text-primary"></i>
+                  {blogDetails?.read_time}
+                </span>
+              </p>
             </div>
+
+            <div className="blog-content p-4  space-y-4 text-paragraph font-regular">
+              {renderHTMLWithCode(blogDetails.content)}
+            </div>
+          </div>
+
+          <div className="col-12 lg:col-4  ">
+            <aside className="lg:sticky lg:top-[13%] space-y-6">
+              <div className="">
+                <Link
+                  href="/blogs"
+                  className="bg-gray-100 block p-3 font-medium text-lg text-heading text-center rounded-md hover:bg-primary hover:text-white duration-300"
+                >
+                  View all blogs
+                </Link>
+              </div>
+
+              <div className="bg-secondary p-4 rounded-lg shadow-sm">
+                <h2 className="font-bold text-heading text-lg mb-4 text-center">
+                  Feeds
+                </h2>
+                {loading ? (
+                  <div className="flex">
+                    <Skeleton baseColor="#E6EBFB" height={80} width={80} />
+                    <div className="col-9">
+                      <Skeleton baseColor="#E6EBFB" count={2} />
+                    </div>
+                  </div>
+                ) : (
+                  blogs.slice(0, 3).map((blog, i) => (
+                    <div key={i} className="">
+                      <Link
+                        href={`/blogs/${blog.slug}`}
+                        className="flex items-center gap-4 mb-4 bg-white p-2 rounded-lg shadow-md"
+                      >
+                        <Image
+                          src={blog.small_image || "/placeholder.jpg"}
+                          alt={blog.title}
+                          width={80}
+                          height={80}
+                          className="rounded-md"
+                        />
+                        <p className="text-sm font-medium text-heading hover:text-primary ">
+                          {blog.title}
+                        </p>
+                      </Link>
+                    </div>
+                  ))
+                )}
+              </div>
+
+              <div className="bg-secondary p-4 rounded-xl shadow-sm">
+                <h2 className="font-bold text-center text-heading text-lg mb-4">
+                  Follow Us
+                </h2>
+                <div className="flex justify-center">
+                  <div className="flex flex-wrap gap-6">
+                    <button className="text-white bg-primary min-h-10 min-w-10 rounded-full flex justify-center items-center">
+                      <i class="fa-brands fa-linkedin-in"></i>
+                    </button>
+                    <button className="text-white bg-primary min-h-10 min-w-10 rounded-full flex justify-center items-center">
+                      <i class="fa-brands fa-instagram"></i>
+                    </button>
+                    <button className="text-white bg-primary min-h-10 min-w-10 rounded-full flex justify-center items-center">
+                      <i class="fa-brands fa-facebook-f"></i>
+                    </button>
+                    <button className="text-white bg-primary min-h-10 min-w-10 rounded-full flex justify-center items-center">
+                      <i class="fa-brands fa-x-twitter"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </aside>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

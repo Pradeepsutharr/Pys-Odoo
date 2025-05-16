@@ -6,7 +6,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 const BlogCard = ({ slug, title, tag, date, imageUrl }) => {
   return (
     <Link href={`/blogs/${slug}`}>
-      <div className="bg-white rounded-xl shadow-lg overflow-hidden p-4 cursor-pointer">
+      <div className="bg-white rounded-xl shadow-lg overflow-hidden p-4 cursor-pointer min-h-[406px]">
         <div className="relative w-full">
           {imageUrl ? (
             <img src={imageUrl} alt={title} className="" />
