@@ -273,3 +273,114 @@ section.why-choose-us {
 .contact-card:hover address {
   color: white;
 }
+
+/* industry */
+.industry-link i, .service-link i {
+  transition: all 0.3s;
+}
+
+.industry-link:hover i, .service-link:hover  i {
+  transform: translateX(5px);
+}
+
+.industries-tal-to-expert{
+  background-image: url(../../public/images/industry_talk_to_expert.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.swiper-pagination-bullet{
+  width: 9px !important;
+  height: 9px !important;
+}
+
+.swiper-pagination-bullet-active{
+  background-color: #714b67 !important;
+  width: 12px !important;
+  height: 12px !important;}
+
+
+
+  /* call button */
+  .pulse-button span{
+    position:absolute;
+    right:5px;
+    top:5px;
+    color:#714b67;
+    background:rgb(255, 255, 255);
+    border-radius:50%;
+    width:40px;
+    height:40px;
+    float:right;
+  }
+  
+  .pulse-button span:before{
+    font-family: FontAwesome;
+    content:"\f095";
+    width:15px;
+    height:15px;
+    display:block;
+    margin:8px 12px;
+    -webkit-animation: wiggle 2s infinite;
+    -moz-animation: wiggle 2s infinite;
+    animation: wiggle 2s infinite;
+  }
+  
+  .pulse-button i{
+    font-size:15px;
+    margin:0 auto;
+    opacity:0.5;
+    
+  }
+  .pulse-button {
+    color:#ffffff;
+    font-weight:medium;
+    position: relative;
+    width: 150px;
+    padding: 10px 15px 6px 17px;
+    line-height:25px;
+    text-align:left;
+    height: 50px;
+    border: none;
+    box-shadow: 0 0 0 0 rgba(155, 91, 139, 0.3);
+    border-radius: 40px;
+    background-color: #714b67;
+    background-size:cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    -webkit-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    -moz-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    -ms-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  }
+  .pulse-button:hover 
+  {
+    -webkit-animation: none;-moz-animation: none;-ms-animation: none;animation: none;
+  }
+  
+  @-webkit-keyframes pulse {to {box-shadow: 0 0 0 25px rgba(255, 232, 160, 0);}}
+  @-moz-keyframes pulse {to {box-shadow: 0 0 0 25px rgba(255, 232, 160, 0);}}
+  @-ms-keyframes pulse {to {box-shadow: 0 0 0 25px rgba(255, 232, 160, 0);}}
+  @keyframes pulse {to {box-shadow: 0 0 0 25px rgba(255, 232, 160, 0);}}
+  
+  
+  /* safari and chrome */
+  @-webkit-keyframes wiggle {
+    0% {-webkit-transform:rotate(15deg);}
+    50% {-webkit-transform:rotate(-15deg);}
+    100% {-webkit-transform:rotate(15deg);}
+  }
+   
+  /* firefox */
+  @-moz-keyframes wiggle {
+    0% {-moz-transform:rotate(15deg);}
+    50% {-moz-transform:rotate(-15deg);}
+    100% {-moz-transform:rotate(15deg);}
+  }
+   
+  /* anyone brave enough to implement the ideal method */
+  @keyframes wiggle {
+    0% {transform:rotate(15deg);}
+    50% {transform:rotate(-15deg);}
+    100% {transform:rotate(15deg);}
+  }

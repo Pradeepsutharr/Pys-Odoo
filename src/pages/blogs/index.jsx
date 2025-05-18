@@ -27,20 +27,18 @@ const Blogs = () => {
 
   return (
     <section className="py-2">
+      <div className="flex flex-col items-center bg-[#151922] justify-center py-20 text-center">
+        <h1 className="text-6xl font-bold text-white mb-2">
+          Blogs Exploration
+        </h1>
+        <p className="text-paragraph font-regular text-xl mt-5 max-w-4xl">
+          Explore our insightful blogs for the latest trends, expert insights,
+          and valuable information in the world of technology, business, and
+          innovation. Stay informed, inspired, and discover new perspectives
+          with our engaging blog posts.
+        </p>
+      </div>
       <div className="container">
-        <div className="text-center ">
-          <h2 className="text-center text-6xl font-bold text-primary mb-3">
-            Blogs Exploration
-          </h2>
-
-          <p className="lg:col-6 col-12 mx-auto text-paragraph">
-            Explore our insightful blogs for the latest trends, expert insights,
-            and valuable information in the world of technology, business, and
-            innovation. Stay informed, inspired, and discover new perspectives
-            with our engaging blog posts.
-          </p>
-        </div>
-
         <div className="flex flex-wrap justify-center">
           {loading
             ? Array.from({ length: 6 }).map((_, i) => (

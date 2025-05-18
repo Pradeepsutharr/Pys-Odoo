@@ -1,10 +1,12 @@
 import React from "react";
-import Service from "./service";
+import ServiceHero from "./servicesHero";
+import AllServices from "./allServices";
 
 const ServicePage = () => {
   return (
     <>
-      <Service />
+      <ServiceHero />
+      <AllServices />
     </>
   );
 };

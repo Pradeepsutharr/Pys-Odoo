@@ -23,7 +23,7 @@ const BlogDetails = () => {
   useEffect(() => {
     if (!slug) return;
     axios
-      .get(`https://backend.pysquad.com/api/v1/blogs/${slug}/`)
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/blogs/${slug}/`)
       .then((res) => {
         setBlogDetails(res.data);
         setIsLoading(false);
@@ -168,8 +168,8 @@ const BlogDetails = () => {
                         <Image
                           src={blog.small_image || "/placeholder.jpg"}
                           alt={blog.title}
-                          width={80}
-                          height={80}
+                          width={100}
+                          height={100}
                           className="rounded-md"
                         />
                         <p className="text-sm font-medium text-heading hover:text-primary ">
@@ -186,17 +186,17 @@ const BlogDetails = () => {
                   Follow Us
                 </h2>
                 <div className="flex justify-center">
-                  <div className="flex flex-wrap gap-6">
-                    <button className="text-white bg-primary min-h-10 min-w-10 rounded-full flex justify-center items-center">
+                  <div className="social-contact flex gap-4 mt-2">
+                    <button className="text-heading hover:bg-[#0077B5] hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
                       <i class="fa-brands fa-linkedin-in"></i>
                     </button>
-                    <button className="text-white bg-primary min-h-10 min-w-10 rounded-full flex justify-center items-center">
+                    <button className="text-heading hover:bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-600 hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
                       <i class="fa-brands fa-instagram"></i>
                     </button>
-                    <button className="text-white bg-primary min-h-10 min-w-10 rounded-full flex justify-center items-center">
+                    <button className="text-heading hover:bg-[#1877F2] hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
                       <i class="fa-brands fa-facebook-f"></i>
                     </button>
-                    <button className="text-white bg-primary min-h-10 min-w-10 rounded-full flex justify-center items-center">
+                    <button className="text-heading hover:bg-black hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
                       <i class="fa-brands fa-x-twitter"></i>
                     </button>
                   </div>

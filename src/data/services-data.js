@@ -2,7 +2,7 @@ export const our_services = [
   {
     id: "implementation",
     title: "Odoo Implementation",
-    icon: "/public/images/implementation.png",
+    icon: "/icons/odoo_implementation.svg",
     content: "Implementing Odoo with a seamless workflow...",
     image: "",
     description:
@@ -23,7 +23,7 @@ export const our_services = [
   {
     id: "customization",
     title: "Odoo Customization",
-    icon: "/public/images/implementation.png",
+    icon: "/icons/odoo_customization.svg",
     content: "We tailor Odoo to your unique business processes...",
     image: "",
     description:
@@ -43,7 +43,7 @@ export const our_services = [
   {
     id: "integration",
     title: "Odoo Integration",
-    icon: "/public/images/implementation.png",
+    icon: "/icons/odoo_integration.svg",
     content: "Boost productivity with seamless system integrations...",
     image: "",
     description:
@@ -63,7 +63,7 @@ export const our_services = [
   {
     id: "migration",
     title: "Odoo Migration",
-    icon: "/public/images/implementation.png",
+    icon: "/icons/odoo_migration.svg",
     content: "Smooth Transition to the Latest Odoo Version...",
     image: "",
     description:
@@ -82,7 +82,7 @@ export const our_services = [
   {
     id: "support",
     title: "Odoo Support & Maintenance",
-    icon: "/public/images/implementation.png",
+    icon: "/icons/odoo_maintanance.svg",
     content: "Dedicated Support. No Downtime. Continuous Improvements...",
     image: "",
     description:
@@ -102,7 +102,7 @@ export const our_services = [
   {
     id: "training",
     title: "Odoo Training",
-    icon: "/public/images/implementation.png",
+    icon: "/icons/odoo_training.svg",
     content: "Functional, Technical, and Admin Training for All Teams...",
     image: "",
     description:

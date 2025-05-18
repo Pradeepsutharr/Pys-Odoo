@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import "@/styles/globals.css";
 import SplitText from "../splitText";
 
@@ -42,7 +43,7 @@ const Hero = () => {
         </p>
 
         <button className="mt-10 animate-bounce bg-primary text-white px-6 py-3 rounded-full shadow-md text-center">
-          Get a free consultation
+          <Link href="/contactUs">Get a free consultation</Link>
         </button>
       </div>
     </section>

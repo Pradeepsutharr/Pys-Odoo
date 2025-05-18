@@ -1,6 +1,6 @@
 import React from "react";
-import ServicePage from "@/components/service";
 import BlogSection from "@/components/blog/blogSec";
+import ServicePage from "@/components/service";
 
 const Services = () => {
   return (

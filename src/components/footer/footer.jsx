@@ -76,13 +76,16 @@ const Footer = () => {
               </h3>
               <ul className="space-y-3 text-paragraph ">
                 <li className="font-regular hover:text-primary duration-300">
-                  <Link href=""> Home</Link>
+                  <Link href="/"> Home</Link>
                 </li>
                 <li className="font-regular hover:text-primary duration-300">
-                  <Link href="">About Us</Link>
+                  <Link href="/services">Services</Link>
                 </li>
                 <li className="font-regular hover:text-primary duration-300">
-                  <Link href="">Services</Link>
+                  <Link href="/industries">Industries</Link>
+                </li>
+                <li className="font-regular hover:text-primary duration-300">
+                  <Link href="/contactUs">Contact Us</Link>
                 </li>
               </ul>
             </div>

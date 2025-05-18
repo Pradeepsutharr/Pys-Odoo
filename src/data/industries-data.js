@@ -1,3 +1,6 @@
+
+
+
 export const industriesData = [
   {
     id: 1,
@@ -29,16 +32,31 @@ export const industriesData = [
   },
   {
     id: 5,
-    icon: "/icons/construction.svg",
-    title: "Construction",
-    description: "Project management, budgeting, material tracking",
-    link: "/industries/construction",
-  },
-  {
-    id: 6,
-    icon: "/icons/realestate.svg",
-    title: "Real Estate",
+    icon: "/icons/real_estate.svg",
+    title: "Real Estate & Construction",
     description: "Property listings, client management, contracts",
     link: "/industries/real-estate",
   },
+  {
+    id: 6,
+    icon: "/icons/logistic.svg",
+    title: "Logistics & Transportation",
+    description: "Fleet, shipments, route planning",
+    link: "/industries/construction",
+  },
+  {
+    id: 7,
+    icon: "/icons/consulting.svg",
+    title: "Services & Consulting",
+    description: "Timesheets, project billing, CRM",
+    link: "/industries/construction",
+  },
+  {
+    id: 8,
+    icon: "/icons/hospitality.svg",
+    title: "Hospitality",
+    description: "Reservations, POS, guest management",
+    link: "/industries/construction",
+  },
+
 ];

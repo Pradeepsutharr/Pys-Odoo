@@ -3,35 +3,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { our_services } from "@/data/services-data";
 
-const Service = () => {
-  console.log(our_services);
-
+const AllServices = () => {
   return (
-    <section>
-      <div className="service-hero text-center  py-20">
-        <div className="service-hero-content lg:col-8 mx-auto">
-          <h2 className="text-6xl font-bold text-white ">
-            Comprehnsive ERP Solutions & Services
-          </h2>
-          <p className="text-paragraph font-regular text-2xl mt-5">
-            Discover our comprehensive Odoo services: ERP Implementation, Module
-            Customization, Integration, Support & Migration.
-          </p>
-        </div>
-      </div>
-
+    <section className="py-20">
       <div className="container">
         <div className="flex flex-wrap justify-center ">
           {our_services.map((s, index) => (
             <div key={index} className=" col-12 md:col-6 lg:col-4 xl:col-3">
               <div className="relative bg-white p-6 rounded-xl shadow-md border border-gray-100">
-                <div className="w-12 h-12 mb-4">
-                  <Image
-                    src={s.icon}
-                    alt={`${s.title} icon`}
-                    width={48}
-                    height={48}
-                  />
+                <div className="max-w-20 min-h-20 rounded-full flex justify-center items-center mb-4 bg-primary">
+                  <Image src={s.icon} alt={s.title} width={45} height={45} />
                 </div>
 
                 <h3 className="text-lg font-semibold text-gray-900 z-10 relative">
@@ -49,9 +30,9 @@ const Service = () => {
                   }}
                   as="/service-details"
                   onClick={() => localStorage.setItem("serviceId", s.id)}
-                  className="inline-flex items-center gap-2 mt-6 text-sm text-primary bg-gray-200 px-4 py-2 rounded-md hover:bg-primary hover:text-white transition z-10 relative"
+                  className="service-link inline-flex items-center gap-1 mt-6 text-sm text-heading hover:text-primary  transition z-10 relative"
                 >
-                  Read More
+                  Read More <i class="fa-solid fa-angles-right"></i>
                 </Link>
               </div>
             </div>
@@ -62,4 +43,4 @@ const Service = () => {
   );
 };
 
-export default Service;
+export default AllServices;

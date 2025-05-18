@@ -1,5 +1,4 @@
-// import React from "react";
-import React, { useRef, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -98,12 +97,12 @@ const Testimonials = () => {
             ))}
           </Swiper>
 
-          <div className="flex justify-end gap-4 mt-4">
-            <button className="custom-prev bg-gray-200 hover:bg-primary duration-200 text-white p-2  w-12 h-12">
-              Prev
+          <div className="swiper-controls flex gap-5 justify-end">
+            <button className="custom-prev bg-gray-200 px-4 py-3 hover:bg-primary hover:text-white duration-300">
+              <i class="fa-solid fa-angles-left"></i>
             </button>
-            <button className="custom-next bg-gray-300 hover:bg-primary duration-200 text-white p-2  w-12 h-12">
-              Next
+            <button className="custom-next bg-gray-200 px-4 py-3 hover:bg-primary hover:text-white duration-300">
+              <i class="fa-solid fa-angles-right"></i>
             </button>
           </div>
         </div>

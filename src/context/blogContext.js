@@ -11,7 +11,7 @@ export const BlogProvider = ({ children }) => {
     const fetchBlogs = async () => {
       try {
         const response = await axios.get(
-          "https://backend.pysquad.com/api/v1/blogs/?is_for_pysquad=&is_for_odoo=true&is_for_ai="
+          `${process.env.NEXT_PUBLIC_API_URL}/blogs/?is_for_pysquad=&is_for_odoo=true&is_for_ai=`
         );
         setBlogs(response.data);
       } catch (error) {

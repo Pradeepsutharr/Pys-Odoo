@@ -16,7 +16,7 @@ const TalkToExpert = () => {
           </p>
 
           <Link
-            href="/"
+            href="/contactUs"
             className="inline-block capitalize bg-primary text-white py-3 px-5 rounded-full"
           >
             talk to an expert

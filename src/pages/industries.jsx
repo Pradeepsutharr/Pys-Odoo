@@ -1,10 +1,12 @@
-import IndustriesPage from "@/components/industries/industiresPage";
+import BlogSection from "@/components/blog/blogSec";
+import IndustryPage from "@/components/industries";
 import React from "react";
 
 const industries = () => {
   return (
     <>
-      <IndustriesPage />
+      <IndustryPage />
+      <BlogSection />
     </>
   );
 };

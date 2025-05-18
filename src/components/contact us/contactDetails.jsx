@@ -1,74 +1,9 @@
 import React from "react";
-import { useState } from "react";
-import axios from "axios";
 import Link from "next/link";
 
-const ContactPage = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const [status, setStatus] = useState(null);
-
-  const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus("loading");
-
-    try {
-      const response = await axios.post(
-        "https://backend.pysquad.com/api/v1/contact/pysquad/",
-        formData
-      );
-      setStatus("success");
-      setFormData({
-        name: "",
-        phone: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
-    } catch (error) {
-      console.error("Error submitting contact form:", error);
-      setStatus("error");
-    }
-  };
-
+const ContactDetails = () => {
   return (
-    <section className="bg-[#f9f9f9]">
-      <div className="flex flex-col items-center bg-[#151922] justify-center py-20 text-center">
-        <h1 className="text-6xl font-bold text-white mb-2">Contact Us</h1>
-        <p className="text-paragraph font-regular text-xl mt-5 max-w-4xl">
-          Every great solution starts with a simple conversation. Whether you
-          have a question, an idea, or a challenge to solve — let’s connect and
-          create something remarkable together.
-        </p>
-
-        <div className="social-contact flex gap-4 mt-8">
-          <button className="text-heading hover:bg-[#0077B5] hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
-            <i class="fa-brands fa-linkedin-in"></i>
-          </button>
-          <button className="text-heading hover:bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-600 hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
-            <i class="fa-brands fa-instagram"></i>
-          </button>
-          <button className="text-heading hover:bg-[#1877F2] hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
-            <i class="fa-brands fa-facebook-f"></i>
-          </button>
-          <button className="text-heading hover:bg-black hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
-            <i class="fa-brands fa-x-twitter"></i>
-          </button>
-        </div>
-      </div>
+    <section>
       <div className="container">
         <div className="col-12 text-center my-12">
           <div className="flex flex-wrap justify-center gap-6 mt-10">
@@ -163,102 +98,9 @@ const ContactPage = () => {
             </div>
           </div>
         </div>
-
-        <div className="col-12 flex flex-col md:flex-row items-center bg-primary text-white p-6 rounded-2xl">
-          <div className="w-full md:w-1/2 p-4">
-            <h3 className="text-sm text-yellow-300 capitalize font-regular rounded-full inline-block">
-              Get in Touch
-            </h3>
-            <h2 className="text-3xl font-bold mb-6">
-              We’d love to hear from you – let’s talk.
-            </h2>
-            <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-              <div className="flex flex-col md:flex-row gap-4">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="flex-1 p-3 rounded-lg text-black"
-                  required
-                />
-                <input
-                  type="text"
-                  name="phone"
-                  placeholder="Phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="flex-1 p-3 rounded-lg text-black"
-                  required
-                />
-              </div>
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleChange}
-                className="p-3 rounded-lg text-black"
-                required
-              />
-              <input
-                type="text"
-                name="subject"
-                placeholder="Subject"
-                value={formData.subject}
-                onChange={handleChange}
-                className="p-3 rounded-lg text-black"
-                required
-              />
-              <textarea
-                name="message"
-                placeholder="Message"
-                value={formData.message}
-                onChange={handleChange}
-                className="p-3 h-32 rounded-lg text-black"
-                required
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-yellow-300 text-black py-3 px-6 rounded-lg font-bold w-full self-center"
-              >
-                {status === "loading" ? "Sending..." : "Submit Now"}
-              </button>
-              {status === "success" && (
-                <p className="text-white text-center">
-                  Message sent successfully!
-                </p>
-              )}
-              {status === "error" && (
-                <p className="text-red-300 text-center">
-                  Something went wrong. Please try again.
-                </p>
-              )}
-            </form>
-          </div>
-
-          <div className="w-full md:w-1/2 p-4">
-            <img
-              src="/contact-image.jpg"
-              alt="Contact"
-              className="rounded-2xl"
-            />
-          </div>
-        </div>
-      </div>
-      <div className="col-12 mt-12">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.578955645993!2d72.5095582!3d23.039226799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6df3775da9ff0330!2sPySquad%20Informatics%20LLP!5e0!3m2!1sen!2sin!4v1655980345753!5m2!1sen!2sin"
-          width="100%"
-          height="400"
-          className=" w-full"
-          allowFullScreen=""
-          loading="lazy"
-        ></iframe>
       </div>
     </section>
   );
 };
 
-export default ContactPage;
+export default ContactDetails;
