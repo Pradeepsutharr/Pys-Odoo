@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import "@/styles/globals.css";
 import { useRouter } from "next/router";
 
 function Navbar() {
@@ -18,6 +17,23 @@ function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!window.Calendly) {
+      const script = document.createElement("script");
+      script.src = "https://assets.calendly.com/assets/external/widget.js";
+      script.async = true;
+      script.onload = () => {};
+      document.head.appendChild(script);
+    }
+  }, []);
+
+  const handleCalendlyPopup = () => {
+    window.Calendly.initPopupWidget({
+      url: "https://calendly.com/vh-pysquad/meeting-with-pysquad?hide_gdpr_banner=1",
+    });
+    return false;
+  };
 
   return (
     <header>
@@ -71,7 +87,7 @@ function Navbar() {
         </nav>
 
         <div className="po_book_call">
-          <button class="pulse-button">
+          <button onClick={handleCalendlyPopup} className="pulse-button">
             Book A call
             <span></span>
           </button>
@@ -110,7 +126,6 @@ function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Sidebar */}
       <div
         className={`fixed top-0 right-0 w-80 h-full shadow-lg p-6 z-50 bg-white transform transition-transform duration-300 ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
@@ -176,17 +191,19 @@ function Navbar() {
               </p>
             </div>
             <div className="text-sm mt-2 flex">
-              <span>📞</span> <phone>+91 9898295005</phone>{" "}
+              <span>📞</span> <span>+91 9898295005</span>
             </div>
           </div>
 
-          <button className="font-medium py-2 px-4 bg-primary text-white rounded-full mt-4">
+          <button
+            onClick={handleCalendlyPopup}
+            className="font-medium py-2 px-4 bg-primary text-white rounded-full mt-4"
+          >
             Book A Call
           </button>
         </div>
       </div>
 
-      {/* Overlay */}
       <div
         onClick={() => setIsMenuOpen(false)}
         className={`fixed inset-0 bg-black bg-opacity-40 z-40 transition-opacity duration-300 ${

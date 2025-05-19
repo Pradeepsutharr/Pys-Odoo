@@ -22,8 +22,10 @@ const IndustriesSlider = () => {
             <div className="industries-image ">
               <Image
                 src="/images/industries-sec.png"
+                alt="Industries"
                 width={380}
                 height={400}
+                className="w-auto"
               />
             </div>
           </div>
@@ -75,6 +77,7 @@ const IndustriesSlider = () => {
                     <div className="bg-white rounded-2xl shadow-sm p-8 relative transition-transform hover:-translate-y-1 hover:shadow-lg">
                       <div className="max-w-20 min-h-20 rounded-full flex justify-center items-center mb-4 bg-primary">
                         <Image
+                          className="w-auto h-auto"
                           src={industry.icon}
                           alt={industry.title}
                           width={48}
@@ -88,10 +91,10 @@ const IndustriesSlider = () => {
                         {industry.description}
                       </p>
                       <Link
-                        href=""
+                        href="#"
                         className="text-primary text-sm font-medium industry-link "
                       >
-                        Read More <i class="fa-solid fa-angles-right"></i>
+                        Read More <i className="fa-solid fa-angles-right"></i>
                       </Link>
                     </div>
                   </SwiperSlide>
@@ -102,11 +105,17 @@ const IndustriesSlider = () => {
             <div className=" flex justify-between">
               <div className="pagination flex gap-1 items-center "></div>
               <div className="flex gap-4">
-                <button className="custom-prev bg-gray-200 px-4 py-3 hover:bg-primary hover:text-white duration-300">
-                  <i class="fa-solid fa-angles-left"></i>
+                <button
+                  name="prev-btn"
+                  className="custom-prev bg-gray-200 px-4 py-3 hover:bg-primary hover:text-white duration-300"
+                >
+                  <i className="fa-solid fa-angles-left"></i>
                 </button>
-                <button className="custom-next bg-gray-200 px-4 py-3 hover:bg-primary hover:text-white duration-300">
-                  <i class="fa-solid fa-angles-right"></i>
+                <button
+                  name="next-btn"
+                  className="custom-next bg-gray-200 px-4 py-3 hover:bg-primary hover:text-white duration-300"
+                >
+                  <i className="fa-solid fa-angles-right"></i>
                 </button>
               </div>
             </div>

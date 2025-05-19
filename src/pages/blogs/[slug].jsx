@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import "@/styles/globals.css";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -11,6 +10,7 @@ import parse from "html-react-parser";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import Link from "next/link";
+import SEO from "@/components/seo";
 
 const BlogDetails = () => {
   const router = useRouter();
@@ -98,115 +98,150 @@ const BlogDetails = () => {
   }
 
   return (
-    <section className="py-10 relative">
-      <div className="container relative">
-        <div className="flex flex-col lg:flex-row gap-10">
-          <div className="col-12 lg:col-8 bg-white rounded-xl shadow-sm">
-            {loading ? (
-              <Skeleton baseColor="#E6EBFB" height={300} />
-            ) : (
-              <Image
-                src={blogDetails.bg_image}
-                alt="Blog Banner"
-                width={1140}
-                height={300}
-                className="w-full h-auto rounded-lg"
-              />
-            )}
+    <>
+      <SEO
+        pageTitle={`${
+          blogDetails.title ?? "Blogs - Tech Insights &7 Tutorials"
+        }`}
+        pageDescription={`${
+          blogDetails.title ??
+          "Explore the latest insights and tech trends on the Pysquad blog. Discover in-depth articles, tutorials, and thought leadership from our experts."
+        }`}
+        keywords={`${
+          blogDetails.keywords ?? "pysquad blogs, python blogs, odoo blogs"
+        }`}
+        ogImage={blogDetails.bg_image}
+      />
+      <section className="py-10 relative">
+        <div className="container relative">
+          <div className="flex flex-col lg:flex-row gap-10">
+            <div className="col-12 lg:col-9 bg-white rounded-xl shadow-sm">
+              {loading ? (
+                <Skeleton baseColor="#E6EBFB" height={300} />
+              ) : (
+                <Image
+                  src={blogDetails.bg_image}
+                  alt="Blog Banner"
+                  width={1140}
+                  height={300}
+                  className="w-full h-auto rounded-lg"
+                />
+              )}
 
-            <div className="p-4 space-y-3">
-              <h1 className="text-2xl text-heading font-bold">
-                {blogDetails?.title}
-              </h1>
-              <p className="text-sm text-paragraph font-regular mr-2">
-                <span>
-                  <i className="fa-solid fa-calendar-days mr-2 text-primary"></i>
-                  {blogDetails?.modified}
-                </span>{" "}
-                <span className="mx-3">|</span>
-                <span>
-                  <i className="fa-solid fa-clock-rotate-left mr-2 text-primary"></i>
-                  {blogDetails?.read_time}
-                </span>
-              </p>
-            </div>
-
-            <div className="blog-content p-4  space-y-4 text-paragraph font-regular">
-              {renderHTMLWithCode(blogDetails.content)}
-            </div>
-          </div>
-
-          <div className="col-12 lg:col-4  ">
-            <aside className="lg:sticky lg:top-[13%] space-y-6">
-              <div className="">
-                <Link
-                  href="/blogs"
-                  className="bg-gray-100 block p-3 font-medium text-lg text-heading text-center rounded-md hover:bg-primary hover:text-white duration-300"
-                >
-                  View all blogs
-                </Link>
+              <div className="p-4 space-y-3">
+                <h1 className="text-2xl text-heading font-bold">
+                  {blogDetails?.title}
+                </h1>
+                <p className="text-sm text-paragraph font-regular mr-2">
+                  <span>
+                    <i className="fa-solid fa-calendar-days mr-2 text-primary"></i>
+                    {blogDetails?.modified}
+                  </span>{" "}
+                  <span className="mx-3">|</span>
+                  <span>
+                    <i className="fa-solid fa-clock-rotate-left mr-2 text-primary"></i>
+                    {blogDetails?.read_time}
+                  </span>
+                </p>
               </div>
 
-              <div className="bg-secondary p-4 rounded-lg shadow-sm">
-                <h2 className="font-bold text-heading text-lg mb-4 text-center">
-                  Feeds
-                </h2>
-                {loading ? (
-                  <div className="flex">
-                    <Skeleton baseColor="#E6EBFB" height={80} width={80} />
-                    <div className="col-9">
-                      <Skeleton baseColor="#E6EBFB" count={2} />
+              <div className="blog-content p-4  space-y-4 text-paragraph font-regular">
+                {renderHTMLWithCode(blogDetails.content)}
+              </div>
+            </div>
+
+            <div className="col-12 lg:col-3">
+              <aside className="lg:sticky lg:top-[13%] space-y-6">
+                <div className="">
+                  <Link
+                    href="/blogs"
+                    className="bg-gray-100 block p-3 font-medium text-lg text-heading text-center rounded-md hover:bg-primary hover:text-white duration-300"
+                  >
+                    View all blogs
+                  </Link>
+                </div>
+
+                <div className="bg-secondary p-4 rounded-lg shadow-sm">
+                  <h2 className="font-bold text-heading text-lg mb-4 text-center">
+                    Feeds
+                  </h2>
+                  {loading ? (
+                    <div className="flex">
+                      <Skeleton baseColor="#E6EBFB" height={80} width={80} />
+                      <div className="col-9">
+                        <Skeleton baseColor="#E6EBFB" count={2} />
+                      </div>
                     </div>
-                  </div>
-                ) : (
-                  blogs.slice(0, 3).map((blog, i) => (
-                    <div key={i} className="">
+                  ) : (
+                    blogs.slice(0, 3).map((blog, i) => (
+                      <div key={i} className="">
+                        <Link
+                          href={`/blogs/${blog.slug}`}
+                          className="flex items-center gap-4 mb-4 bg-white p-2 rounded-lg shadow-md"
+                        >
+                          <Image
+                            src={blog.small_image || "/placeholder.jpg"}
+                            alt={blog.title}
+                            width={60}
+                            height={60}
+                            className="rounded-md w-auto"
+                          />
+                          <p className="text-sm font-medium text-heading hover:text-primary ">
+                            {blog.title}
+                          </p>
+                        </Link>
+                      </div>
+                    ))
+                  )}
+                </div>
+
+                <div className="bg-secondary p-4 rounded-xl shadow-sm">
+                  <h2 className="font-bold text-center text-heading text-lg mb-4">
+                    Follow Us
+                  </h2>
+                  <div className="flex justify-center">
+                    <div className="social-contact flex gap-4 mt-2">
                       <Link
-                        href={`/blogs/${blog.slug}`}
-                        className="flex items-center gap-4 mb-4 bg-white p-2 rounded-lg shadow-md"
+                        href="https://www.linkedin.com/company/pysquad-informatics/"
+                        target="_blank"
+                        aria-label="Linkedin"
+                        className="text-heading hover:bg-[#0077B5] hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center"
                       >
-                        <Image
-                          src={blog.small_image || "/placeholder.jpg"}
-                          alt={blog.title}
-                          width={100}
-                          height={100}
-                          className="rounded-md"
-                        />
-                        <p className="text-sm font-medium text-heading hover:text-primary ">
-                          {blog.title}
-                        </p>
+                        <i className="fa-brands fa-linkedin-in"></i>
+                      </Link>
+                      <Link
+                        href="https://www.instagram.com/pysquad_informatics/"
+                        target="_blank"
+                        aria-label="Instagram"
+                        className="text-heading hover:bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-600 hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center"
+                      >
+                        <i className="fa-brands fa-instagram"></i>
+                      </Link>
+                      <Link
+                        href="https://www.facebook.com/people/PySquad/61554988294334/#"
+                        target="_blank"
+                        aria-label="Facebook"
+                        className="text-heading hover:bg-[#1877F2] hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center"
+                      >
+                        <i className="fa-brands fa-facebook-f"></i>
+                      </Link>
+                      <Link
+                        href="https://twitter.com/pysquad_info"
+                        target="_blank"
+                        aria-label="Twitter"
+                        className="text-heading hover:bg-black hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center"
+                      >
+                        <i className="fa-brands fa-x-twitter"></i>
                       </Link>
                     </div>
-                  ))
-                )}
-              </div>
-
-              <div className="bg-secondary p-4 rounded-xl shadow-sm">
-                <h2 className="font-bold text-center text-heading text-lg mb-4">
-                  Follow Us
-                </h2>
-                <div className="flex justify-center">
-                  <div className="social-contact flex gap-4 mt-2">
-                    <button className="text-heading hover:bg-[#0077B5] hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
-                      <i class="fa-brands fa-linkedin-in"></i>
-                    </button>
-                    <button className="text-heading hover:bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-600 hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
-                      <i class="fa-brands fa-instagram"></i>
-                    </button>
-                    <button className="text-heading hover:bg-[#1877F2] hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
-                      <i class="fa-brands fa-facebook-f"></i>
-                    </button>
-                    <button className="text-heading hover:bg-black hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
-                      <i class="fa-brands fa-x-twitter"></i>
-                    </button>
                   </div>
                 </div>
-              </div>
-            </aside>
+              </aside>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

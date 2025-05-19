@@ -3,9 +3,9 @@ import Link from "next/link";
 
 const ContactDetails = () => {
   return (
-    <section>
+    <section className="pb-20">
       <div className="container">
-        <div className="col-12 text-center my-12">
+        <div className="col-12 text-center">
           <div className="flex flex-wrap justify-center gap-6 mt-10">
             <div className="col-12 md:col-6 lg:col-3">
               <Link

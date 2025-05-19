@@ -1,11 +1,13 @@
 import React from "react";
-import Hero from "./hero";
-import OurServices from "./ourServices";
-import WhyChooseUs from "./whyChooseUs";
-import Industries from "./industries";
-import Testimonials from "./testimonials";
-import TalkToExpert from "./talkToExpert";
-import BlogSection from "../blog/blogSec";
+import dynamic from "next/dynamic";
+
+const Hero = dynamic(() => import("../home/hero"));
+const OurServices = dynamic(() => import("../home/ourServices"));
+const WhyChooseUs = dynamic(() => import("../home/whyChooseUs"));
+const Industries = dynamic(() => import("../home/industries"));
+const Testimonials = dynamic(() => import("../home/testimonials"));
+const TalkToExpert = dynamic(() => import("../home/talkToExpert"));
+const BlogSection = dynamic(() => import("../blog/blogSec"));
 
 const HomePage = () => {
   return (

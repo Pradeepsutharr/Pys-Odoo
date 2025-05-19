@@ -13,16 +13,16 @@ const ContactHero = () => {
 
         <div className="social-contact flex gap-4 mt-8">
           <button className="text-heading hover:bg-[#0077B5] hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
-            <i class="fa-brands fa-linkedin-in"></i>
+            <i className="fa-brands fa-linkedin-in"></i>
           </button>
           <button className="text-heading hover:bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-600 hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
-            <i class="fa-brands fa-instagram"></i>
+            <i className="fa-brands fa-instagram"></i>
           </button>
           <button className="text-heading hover:bg-[#1877F2] hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
-            <i class="fa-brands fa-facebook-f"></i>
+            <i className="fa-brands fa-facebook-f"></i>
           </button>
           <button className="text-heading hover:bg-black hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
-            <i class="fa-brands fa-x-twitter"></i>
+            <i className="fa-brands fa-x-twitter"></i>
           </button>
         </div>
       </div>

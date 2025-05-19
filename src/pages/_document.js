@@ -15,6 +15,13 @@ export default function Document() {
           href="https://unpkg.com/aos@2.3.1/dist/aos.css"
           rel="stylesheet"
         ></link>
+
+        <link
+          href="https://assets.calendly.com/assets/external/widget.css"
+          rel="stylesheet"
+        />
+
+        <link rel="icon" type="image/png" href="/favicon.ico" />
       </Head>
       <body>
         <Main />

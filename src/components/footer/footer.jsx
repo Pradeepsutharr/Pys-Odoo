@@ -7,14 +7,24 @@ const Footer = () => {
       <div className="container py-10">
         <div className="flex flex-wrap justify-between ">
           <div className="col-12 md:col-4 lg:col-4">
-            <img src="/images//logo.svg" alt="Pysquad Logo" className="mb-4" />
+            <Link href="/">
+              <img
+                src="/images//logo.svg"
+                alt="Pysquad Logo"
+                className="mb-4"
+              />
+            </Link>
             <p className="mb-4 max-w-xs">
               Contact us today to learn more about how PySquad Informatics can
               help your business succeed with our Web, App, AI and Cloud
               services.
             </p>
             <div className="flex gap-4 social-links">
-              <Link href="#" aria-label="Twitter">
+              <Link
+                href="https://twitter.com/pysquad_info"
+                target="_blank"
+                aria-label="Twitter"
+              >
                 <svg
                   className="fill-paragraph hover:fill-primary duration-300"
                   xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +37,11 @@ const Footer = () => {
                 </svg>
               </Link>
 
-              <Link href="#" aria-label="LinkedIn">
+              <Link
+                href="https://www.linkedin.com/company/pysquad-informatics/"
+                target="_blank"
+                aria-label="LinkedIn"
+              >
                 <svg
                   className="fill-paragraph hover:fill-primary duration-300"
                   xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +54,11 @@ const Footer = () => {
                 </svg>
               </Link>
 
-              <Link href="#" aria-label="Facebook">
+              <Link
+                href="https://www.facebook.com/people/PySquad/61554988294334/#"
+                target="_blank"
+                aria-label="Facebook"
+              >
                 <svg
                   className="fill-paragraph hover:fill-primary duration-300"
                   xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +71,11 @@ const Footer = () => {
                 </svg>
               </Link>
 
-              <Link href="#" aria-label="Instagram">
+              <Link
+                href="https://www.instagram.com/pysquad_informatics/"
+                target="_blank"
+                aria-label="Instagram"
+              >
                 <svg
                   className="fill-paragraph hover:fill-primary duration-300"
                   xmlns="http://www.w3.org/2000/svg"
@@ -178,16 +200,19 @@ const Footer = () => {
                   </mask>
                   <g>
                     <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="M23.7254 1.13017C23.8114 1.20058 23.8806 1.28917 23.928 1.38956C23.9755 1.48995 24.0001 1.59963 24 1.71067V22.7107C23.9999 22.884 23.9398 23.052 23.8298 23.1859C23.7199 23.3199 23.5669 23.4117 23.397 23.4457L15.897 24.9457C15.7999 24.965 15.7001 24.965 15.603 24.9457L8.25 23.4757L0.897 24.9457C0.788233 24.9674 0.675998 24.9648 0.568381 24.9379C0.460764 24.911 0.360444 24.8606 0.274649 24.7903C0.188854 24.7201 0.11972 24.6315 0.0722276 24.5313C0.0247352 24.4311 6.69791e-05 24.3216 0 24.2107V3.21067C0.000104673 3.03736 0.0602341 2.86942 0.170165 2.73543C0.280096 2.60143 0.433043 2.50965 0.603 2.47567L8.103 0.975672C8.20004 0.956276 8.29996 0.956276 8.397 0.975672L15.75 2.44567L23.103 0.975672C23.2117 0.953796 23.3239 0.956306 23.4316 0.983022C23.5392 1.00974 23.6396 1.05999 23.7254 1.13017ZM15 3.82567L9 2.62567V22.0957L15 23.2957V3.82567ZM16.5 23.2957L22.5 22.0957V2.62567L16.5 3.82567V23.2957ZM7.5 22.0957V2.62567L1.5 3.82567V23.2957L7.5 22.0957Z"
                     />
                   </g>
                 </svg>
-                <address className="font-regular text-paragraph  ms-2">
+                <Link
+                  href="https://www.google.com/maps/place/PySquad+Informatics+LLP/@23.0386088,72.5096226,15z/data=!4m6!3m5!1s0x395e9bfc8ecadbcf:0x6df3775da9ff0330!8m2!3d23.0386088!4d72.5096226!16s%2Fg%2F11qm6hh762?entry=ttu"
+                  className="font-regular text-paragraph ms-2"
+                >
                   A 605, Shilp Aaron, Sindhu Bhavan Road,Ahmedabad, IN 380054,
                   India
-                </address>
+                </Link>
 
                 <br />
 

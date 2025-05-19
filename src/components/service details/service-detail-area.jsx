@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { our_services } from "@/data/services-data";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import SEO from "../seo";
 
 const ServiceDetailsArea = () => {
   const router = useRouter();
@@ -14,8 +15,6 @@ const ServiceDetailsArea = () => {
   const [isActive, setIsActive] = useState(null);
   const [serviceData, setServiceData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
-  console.log(serviceid, "-----------");
 
   useEffect(() => {
     const storedId = localStorage.getItem("serviceId");
@@ -38,6 +37,11 @@ const ServiceDetailsArea = () => {
         if (isActive === item.id) {
           return (
             <div key={index} className="bg-white text-paragraph">
+              <SEO
+                pageTitle={`${item.title} | Certified Odoo ERP Experts | Pysquad.com`}
+                pageDescription={`Discover expert ${item.title} services with certified Odoo professionals at Pysquad. Tailored ERP solutions to streamline your business operations and boost productivity.`}
+                keywords={`${item.title} Pysquad Odoo Services, Odoo ERP Experts, Odoo implementation, business automation, ERP integration`}
+              />
               {isLoading ? (
                 <div className="container">
                   <Skeleton baseColor="#E6EBFB" height={400} />
@@ -64,9 +68,11 @@ const ServiceDetailsArea = () => {
                       <Image
                         src={item.image}
                         alt={item.title}
-                        width={1200}
+                        width={800}
                         height={600}
-                        className="rounded-md"
+                        priority="true"
+                        placeholder="empty"
+                        className="rounded-md w-auto"
                       />
                     )}
                   </div>
@@ -76,14 +82,18 @@ const ServiceDetailsArea = () => {
                   </h2>
                   <p className="mb-6 font-regular">{item.description}</p>
 
-                  <div className="flex flex-wrap justify-between items-center mb-6">
+                  <div className="flex flex-wrap justify-between items-start mb-6">
                     <div className="col-12 lg:col-6 md:col-6">
                       <h3 className="text-xl font-bold text-heading mb-2 capitalize">
                         {item.key_points.title}
                       </h3>
                       <ul className="list-disc list-inside space-y-2">
                         {item?.key_points.points.map((p, i) =>
-                          isLoading ? <Skeleton /> : <li key={i}>{p}</li>
+                          isLoading ? (
+                            <Skeleton key={i} />
+                          ) : (
+                            <li key={i}>{p}</li>
+                          )
                         )}
                       </ul>
                     </div>
@@ -91,9 +101,11 @@ const ServiceDetailsArea = () => {
                     <div className="col-12 md:col-6 lg:col-6">
                       <div className="flex flex-wrap">
                         <Image
-                          className="md:ml-auto"
+                          className="md:ml-auto w-auto"
                           src="/images/service-circle-image.png"
                           alt="Customization Icons"
+                          priority="true"
+                          placeholder="empty"
                           width={250}
                           height={250}
                         />
@@ -110,10 +122,11 @@ const ServiceDetailsArea = () => {
                       <div className="content bg-gray-100 flex items-center justify-between p-4 rounded-xl shadow">
                         <div className="mb-2 col-3 bg-primary max-w-16 h-16 rounded-lg flex justify-center items-center">
                           <Image
-                            src="/images/flexible-soutions.svg"
+                            src="/images//flexible-soutions.svg"
                             alt="Flexible Solutions"
                             width={40}
                             height={40}
+                            className="w-auto h-auto"
                           />
                         </div>
                         <div className="col-9">
@@ -132,10 +145,11 @@ const ServiceDetailsArea = () => {
                       <div className="content bg-gray-100 flex items-center justify-between p-4 rounded-xl shadow">
                         <div className="mb-2 col-3 bg-primary max-w-16 h-16 rounded-lg flex justify-center items-center ">
                           <Image
-                            src="/images/support.svg"
+                            src="/images//support.svg"
                             alt="24/7 Support"
                             width={40}
                             height={40}
+                            className="w-auto"
                           />
                         </div>
                         <div className="col-9">
@@ -152,7 +166,6 @@ const ServiceDetailsArea = () => {
                   </div>
                 </div>
 
-                {/* Sidebar */}
                 <div className="lg:col-3 md:col-4 col-12 order-1 lg:order-2">
                   <div className="aside lg:sticky top-[10%]">
                     <div className="bg-gray-100 p-4 rounded-xl mb-6">
@@ -162,7 +175,7 @@ const ServiceDetailsArea = () => {
                       <ul className="space-y-2">
                         {serviceData.map((s, i) =>
                           isLoading ? (
-                            <Skeleton baseColor="#E6EBFB" height={40} />
+                            <Skeleton key={i} baseColor="#E6EBFB" height={40} />
                           ) : (
                             <li key={i}>
                               <Link
@@ -175,6 +188,7 @@ const ServiceDetailsArea = () => {
                                 onClick={(e) => {
                                   e.preventDefault();
                                   setIsActive(s.id);
+                                  localStorage.setItem("serviceId", s.id);
                                 }}
                               >
                                 {s.title}
@@ -192,9 +206,12 @@ const ServiceDetailsArea = () => {
                       <h4 className="text-heading text-lg font-bold mb-2">
                         You Need Help?
                       </h4>
-                      <button className="bg-primary text-white px-4 py-2 rounded">
+                      <Link
+                        href="/contactUs"
+                        className="bg-primary text-white px-4 py-2 rounded"
+                      >
                         Get a free consultation
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>

@@ -4,7 +4,7 @@ export const our_services = [
     title: "Odoo Implementation",
     icon: "/icons/odoo_implementation.svg",
     content: "Implementing Odoo with a seamless workflow...",
-    image: "",
+    image: "/images/odoo-implementation.png",
     description:
       "Odoo is a flexible, all-in-one ERP platform that helps businesses streamline operations, reduce manual tasks, and gain real-time visibility into every department. Its modular design makes it easy to deploy only the features you need — from sales and CRM to accounting, inventory, HR, and beyond. At Pysquad, our certified Odoo consultants deliver end-to-end implementation services designed around your specific business processes and industry requirements. Whether you're a startup or an enterprise, we ensure a smooth rollout that aligns with your goals and sets the foundation for long-term growth.",
     key_points: {
@@ -25,7 +25,7 @@ export const our_services = [
     title: "Odoo Customization",
     icon: "/icons/odoo_customization.svg",
     content: "We tailor Odoo to your unique business processes...",
-    image: "",
+    image: "/images/odoo-customization.png",
     description:
       "No two businesses operate the same way — that’s why a one-size-fits-all ERP simply doesn’t work. Odoo's open-source foundation allows full customization of modules, workflows, user roles, and dashboards to meet your exact needs. At Pysquad, we specialize in developing tailored Odoo solutions that reflect how your business truly works. Whether it’s customizing sales workflows, building new reports, modifying UI/UX, or developing entirely new modules, our team ensures your Odoo environment enhances efficiency and supports your long-term strategy.",
     key_points: {
@@ -45,7 +45,7 @@ export const our_services = [
     title: "Odoo Integration",
     icon: "/icons/odoo_integration.svg",
     content: "Boost productivity with seamless system integrations...",
-    image: "",
+    image: "/images/odoo-integration.png",
     description:
       "Disconnected systems slow down growth. Odoo’s integration capabilities allow you to connect all your tools — from eCommerce and accounting platforms to CRMs and payment gateways — into a single unified workflow. At Pysquad, we build robust, secure Odoo integrations using APIs and custom connectors, enabling seamless communication across your software ecosystem. Whether you need to sync data with Shopify, automate accounting with QuickBooks, or connect with logistics platforms, we make sure Odoo becomes the hub of your operations.",
     key_points: {
@@ -65,7 +65,7 @@ export const our_services = [
     title: "Odoo Migration",
     icon: "/icons/odoo_migration.svg",
     content: "Smooth Transition to the Latest Odoo Version...",
-    image: "",
+    image: "/images/odoo-migration.png",
     description:
       "Switching ERP systems or upgrading to the latest version of Odoo can feel complex — but it doesn’t have to be. At Pysquad, we offer professional Odoo migration services that ensure data security, continuity, and minimal downtime. Whether you're migrating from legacy systems like SAP, Tally, or Zoho, or moving from older Odoo versions to the latest release, we handle the process end-to-end. Our approach preserves your data integrity, maintains your custom workflows, and gets you up and running with the new system quickly and efficiently.",
     key_points: {
@@ -84,7 +84,7 @@ export const our_services = [
     title: "Odoo Support & Maintenance",
     icon: "/icons/odoo_maintanance.svg",
     content: "Dedicated Support. No Downtime. Continuous Improvements...",
-    image: "",
+    image: "/images/odoo-support.png",
     description:
       "Your ERP system is the backbone of your operations — and it needs to perform flawlessly every day. At Pysquad, we offer dedicated Odoo support and maintenance services to ensure system stability, fast issue resolution, and continuous performance optimization. From bug fixing and security updates to module upgrades and performance tuning, our team is available when you need us. Choose from flexible support plans that scale with your business, giving you peace of mind and uninterrupted productivity.",
     key_points: {
@@ -104,7 +104,7 @@ export const our_services = [
     title: "Odoo Training",
     icon: "/icons/odoo_training.svg",
     content: "Functional, Technical, and Admin Training for All Teams...",
-    image: "",
+    image: "/images/odoo-training.png",
     description:
       "A successful Odoo implementation is only as good as your team’s ability to use it confidently. That’s why we offer comprehensive Odoo training programs tailored to different user roles — from front-line staff and administrators to developers. Our sessions are practical, hands-on, and designed to maximize productivity from day one. Whether delivered onsite or online, Pysquad’s Odoo training empowers your team with the knowledge they need to fully leverage the ERP system and achieve business success.",
     key_points: {

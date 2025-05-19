@@ -65,10 +65,10 @@ const Testimonials = () => {
               prevEl: ".custom-prev",
               nextEl: ".custom-next",
             }}
-            // autoplay={{
-            //   delay: 2000,
-            //   disableOnInteraction: false,
-            // }}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
             breakpoints={{
               320: {
                 slidesPerView: 1,
@@ -98,11 +98,17 @@ const Testimonials = () => {
           </Swiper>
 
           <div className="swiper-controls flex gap-5 justify-end">
-            <button className="custom-prev bg-gray-200 px-4 py-3 hover:bg-primary hover:text-white duration-300">
-              <i class="fa-solid fa-angles-left"></i>
+            <button
+              name="previous-btn"
+              className="custom-prev bg-gray-200 px-4 py-3 hover:bg-primary hover:text-white duration-300"
+            >
+              <i className="fa-solid fa-angles-left"></i>
             </button>
-            <button className="custom-next bg-gray-200 px-4 py-3 hover:bg-primary hover:text-white duration-300">
-              <i class="fa-solid fa-angles-right"></i>
+            <button
+              name="next-btn"
+              className="custom-next bg-gray-200 px-4 py-3 hover:bg-primary hover:text-white duration-300"
+            >
+              <i className="fa-solid fa-angles-right"></i>
             </button>
           </div>
         </div>

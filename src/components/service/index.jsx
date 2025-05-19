@@ -1,6 +1,8 @@
 import React from "react";
-import ServiceHero from "./servicesHero";
-import AllServices from "./allServices";
+import dynamic from "next/dynamic";
+
+const ServiceHero = dynamic(() => import("../service/servicesHero"));
+const AllServices = dynamic(() => import("../service/allServices"));
 
 const ServicePage = () => {
   return (

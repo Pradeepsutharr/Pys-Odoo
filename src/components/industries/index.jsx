@@ -1,7 +1,11 @@
 import React from "react";
-import IndustryHero from "./industry-hero";
-import IndustriesSlider from "./industriesSldier";
-import TalkToExpert from "./talkToExpert";
+import dynamic from "next/dynamic";
+
+const IndustryHero = dynamic(() => import("../industries/industry-hero"));
+const IndustriesSlider = dynamic(() =>
+  import("../industries/industriesSldier")
+);
+const TalkToExpert = dynamic(() => import("../industries/talkToExpert"));
 
 const IndustryPage = () => {
   return (

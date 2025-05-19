@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
+import Image from "next/image";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: "",
-    subject: "",
     message: "",
   });
 
   const [status, setStatus] = useState(null);
   const [captchaVerified, setCaptchaVerified] = useState(false);
+  const [inputErr, setInputErr] = useState(false);
+  const [showCapcha, setShowCapcha] = useState(false);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -27,8 +29,21 @@ const ContactForm = () => {
     }
   };
 
+  useEffect(() => {
+    const allFilled = Object.values(formData).every((val) => val.trim() !== "");
+    setShowCapcha(allFilled);
+  }, [formData]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const allFilled = Object.values(formData).every((val) => val.trim() !== "");
+    setInputErr(!allFilled);
+
+    if (!allFilled) {
+      setStatus("error");
+      return;
+    }
 
     if (!captchaVerified) {
       setStatus("error");
@@ -51,7 +66,7 @@ const ContactForm = () => {
         subject: "",
         message: "",
       });
-      setCaptchaVerified(false); // reset captcha after submission
+      setCaptchaVerified(false);
     } catch (error) {
       console.error("Error submitting contact form:", error);
       setStatus("error");
@@ -69,56 +84,74 @@ const ContactForm = () => {
             <h2 className="text-3xl font-bold mb-6">
               We’d love to hear from you – let’s talk.
             </h2>
-            <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-              <div className="flex flex-col md:flex-row gap-4">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="flex-1 p-3 rounded-lg text-black"
-                  required
-                />
-                <input
-                  type="text"
-                  name="phone"
-                  placeholder="Phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="flex-1 p-3 rounded-lg text-black"
-                  required
-                />
-              </div>
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleChange}
-                className="p-3 rounded-lg text-black"
-                required
-              />
-              <input
-                type="text"
-                name="subject"
-                placeholder="Subject"
-                value={formData.subject}
-                onChange={handleChange}
-                className="p-3 rounded-lg text-black"
-                required
-              />
-              <textarea
-                name="message"
-                placeholder="Message"
-                value={formData.message}
-                onChange={handleChange}
-                className="p-3 h-32 rounded-lg text-black"
-                required
-              ></textarea>
+            <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
+              <div className="flex flex-col md:flex-row gap-2">
+                <div className="col-12 md:col-6">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="flex p-3 rounded-lg text-black w-full"
+                  />
+                  <span
+                    className={`${inputErr ? "block" : "hidden"} text-red-500`}
+                  >
+                    Name is required
+                  </span>
+                </div>
 
-              {/* reCAPTCHA Component */}
+                <div className="col-12 md:col-6">
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder="Phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="flex p-3 rounded-lg text-black w-full"
+                  />
+                  <span
+                    className={`${inputErr ? "block" : "hidden"} text-red-500`}
+                  >
+                    Name is required
+                  </span>
+                </div>
+              </div>
+
+              <div className="col-12">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="p-3 rounded-lg text-black w-full"
+                />
+                <span
+                  className={`${inputErr ? "block" : "hidden"} text-red-500`}
+                >
+                  Name is required
+                </span>
+              </div>
+
+              <div className="col-12">
+                <textarea
+                  name="message"
+                  placeholder="Message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="p-3 h-32 rounded-lg text-black w-full"
+                ></textarea>
+                <span
+                  className={`${inputErr ? "block" : "hidden"} text-red-500`}
+                >
+                  Name is required
+                </span>
+              </div>
+
               <ReCAPTCHA
+                className={`${showCapcha ? "block" : "hidden"}`}
                 sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
                 onChange={handleCaptchaChange}
               />
@@ -144,10 +177,12 @@ const ContactForm = () => {
           </div>
 
           <div className="w-full md:w-1/2 p-4">
-            <img
+            <Image
               src="/images/contact_us.png"
               alt="Contact"
-              className="rounded-2xl"
+              width={500}
+              height={500}
+              className="rounded-2xl lg:ms-auto"
             />
           </div>
         </div>

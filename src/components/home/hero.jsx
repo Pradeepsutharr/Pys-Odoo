@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import "@/styles/globals.css";
 import SplitText from "../splitText";
 
 const Hero = () => {
@@ -14,7 +13,9 @@ const Hero = () => {
             src="/images/Decorative_cube.png"
             alt="decorative cube"
             fill
-            // sizes="(max-width: 768px) 40px, 64px"
+            placeholder="empty"
+            priority
+            sizes="(max-width: 768px) 40px, 64px"
           />
         </div>
 
