@@ -34,7 +34,7 @@ const BlogDetails = () => {
       });
   }, [slug]);
 
-  const CodeBlock = ({ code, language }) => {
+  const CodeBlock = ({ code }) => {
     const [copied, setCopied] = useState(false);
 
     const handleCopy = () => {
@@ -124,7 +124,8 @@ const BlogDetails = () => {
                   alt="Blog Banner"
                   width={1140}
                   height={300}
-                  className="w-full h-auto rounded-lg"
+                  priority
+                  className="rounded-lg"
                 />
               )}
 
@@ -184,7 +185,8 @@ const BlogDetails = () => {
                             alt={blog.title}
                             width={60}
                             height={60}
-                            className="rounded-md w-auto"
+                            priority
+                            className="rounded-md "
                           />
                           <p className="text-sm font-medium text-heading hover:text-primary ">
                             {blog.title}

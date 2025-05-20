@@ -9,6 +9,7 @@ const ReviewCard = ({ name, title, imageSrc, rating = 5, description }) => {
           alt={name}
           width={200}
           height={200}
+          priority
           className="rounded-lg object-cover"
         />
         <div className="absolute bottom-0 left-14 translate-x-6 translate-y-1/2 bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center text-sm font-semibold shadow-md">

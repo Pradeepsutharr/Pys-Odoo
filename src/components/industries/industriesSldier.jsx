@@ -25,7 +25,7 @@ const IndustriesSlider = () => {
                 alt="Industries"
                 width={380}
                 height={400}
-                className="w-auto"
+                priority
               />
             </div>
           </div>
@@ -77,11 +77,11 @@ const IndustriesSlider = () => {
                     <div className="bg-white rounded-2xl shadow-sm p-8 relative transition-transform hover:-translate-y-1 hover:shadow-lg">
                       <div className="max-w-20 min-h-20 rounded-full flex justify-center items-center mb-4 bg-primary">
                         <Image
-                          className="w-auto h-auto"
                           src={industry.icon}
                           alt={industry.title}
                           width={48}
                           height={48}
+                          priority
                         />
                       </div>
                       <h3 className="text-heading text-xl font-bold mb-2">

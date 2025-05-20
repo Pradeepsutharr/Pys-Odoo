@@ -70,9 +70,9 @@ const ServiceDetailsArea = () => {
                         alt={item.title}
                         width={800}
                         height={600}
-                        priority="true"
+                        priority
                         placeholder="empty"
-                        className="rounded-md w-auto"
+                        className="rounded-md"
                       />
                     )}
                   </div>
@@ -104,7 +104,7 @@ const ServiceDetailsArea = () => {
                           className="md:ml-auto w-auto"
                           src="/images/service-circle-image.png"
                           alt="Customization Icons"
-                          priority="true"
+                          priority
                           placeholder="empty"
                           width={250}
                           height={250}
@@ -126,7 +126,7 @@ const ServiceDetailsArea = () => {
                             alt="Flexible Solutions"
                             width={40}
                             height={40}
-                            className="w-auto h-auto"
+                            priority
                           />
                         </div>
                         <div className="col-9">
@@ -149,7 +149,7 @@ const ServiceDetailsArea = () => {
                             alt="24/7 Support"
                             width={40}
                             height={40}
-                            className="w-auto"
+                            priority
                           />
                         </div>
                         <div className="col-9">

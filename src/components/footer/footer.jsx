@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -8,13 +9,15 @@ const Footer = () => {
         <div className="flex flex-wrap justify-between ">
           <div className="col-12 md:col-4 lg:col-4">
             <Link href="/">
-              <img
+              <Image
                 src="/images//logo.svg"
                 alt="Pysquad Logo"
-                className="mb-4"
+                width={200}
+                height={30}
+                priority
               />
             </Link>
-            <p className="mb-4 max-w-xs">
+            <p className="my-4 max-w-xs">
               Contact us today to learn more about how PySquad Informatics can
               help your business succeed with our Web, App, AI and Cloud
               services.

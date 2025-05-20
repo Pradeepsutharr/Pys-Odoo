@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const ContactHero = () => {
   return (
@@ -12,18 +13,34 @@ const ContactHero = () => {
         </p>
 
         <div className="social-contact flex gap-4 mt-8">
-          <button className="text-heading hover:bg-[#0077B5] hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
+          <Link
+            href="https://www.linkedin.com/company/pysquad-informatics/"
+            target="_blank"
+            className="text-heading hover:bg-[#0077B5] hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center"
+          >
             <i className="fa-brands fa-linkedin-in"></i>
-          </button>
-          <button className="text-heading hover:bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-600 hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
+          </Link>
+          <Link
+            href="https://www.instagram.com/pysquad_informatics/"
+            target="_blank"
+            className="text-heading hover:bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-600 hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center"
+          >
             <i className="fa-brands fa-instagram"></i>
-          </button>
-          <button className="text-heading hover:bg-[#1877F2] hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
+          </Link>
+          <Link
+            href="https://www.facebook.com/people/PySquad/61554988294334/#"
+            target="_blank"
+            className="text-heading hover:bg-[#1877F2] hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center"
+          >
             <i className="fa-brands fa-facebook-f"></i>
-          </button>
-          <button className="text-heading hover:bg-black hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center">
+          </Link>
+          <Link
+            href="https://twitter.com/pysquad_info"
+            target="_blank"
+            className="text-heading hover:bg-black hover:text-white duration-200 bg-gray-200 min-h-10 min-w-10 rounded-full flex justify-center items-center"
+          >
             <i className="fa-brands fa-x-twitter"></i>
-          </button>
+          </Link>
         </div>
       </div>
     </section>

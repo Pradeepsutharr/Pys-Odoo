@@ -9,7 +9,13 @@ const BlogCard = ({ slug, title, tag, date, imageUrl }) => {
       <div className="bg-white rounded-xl shadow-lg overflow-hidden p-4 cursor-pointer min-h-[406px]">
         <div className="relative w-full">
           {imageUrl ? (
-            <img src={imageUrl} alt={title} className="" />
+            <Image
+              src={imageUrl}
+              alt={title}
+              width={400}
+              height={200}
+              priority
+            />
           ) : (
             <Skeleton height={192} />
           )}

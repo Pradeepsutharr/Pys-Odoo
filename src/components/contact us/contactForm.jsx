@@ -114,7 +114,7 @@ const ContactForm = () => {
                   <span
                     className={`${inputErr ? "block" : "hidden"} text-red-500`}
                   >
-                    Name is required
+                    Phone is required
                   </span>
                 </div>
               </div>
@@ -131,7 +131,7 @@ const ContactForm = () => {
                 <span
                   className={`${inputErr ? "block" : "hidden"} text-red-500`}
                 >
-                  Name is required
+                  Email is required
                 </span>
               </div>
 
@@ -146,7 +146,7 @@ const ContactForm = () => {
                 <span
                   className={`${inputErr ? "block" : "hidden"} text-red-500`}
                 >
-                  Name is required
+                  Message is required
                 </span>
               </div>
 
@@ -182,6 +182,7 @@ const ContactForm = () => {
               alt="Contact"
               width={500}
               height={500}
+              priority
               className="rounded-2xl lg:ms-auto"
             />
           </div>

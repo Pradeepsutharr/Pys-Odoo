@@ -6,16 +6,23 @@ import SplitText from "../splitText";
 const Hero = () => {
   return (
     <section className="hero py-20 ">
+      <Image
+        src="/images/hero-bg.png"
+        alt="banner"
+        fill
+        className="z-0"
+        priority
+      />
       <div className="container relative text-center ">
         <div className="absolute lg:left-10 left-[40%] w-20 h-20 lg:top-[-8%] top-[-20%] md:block hidden">
           <Image
             className="animate-slow-spin object-contain"
             src="/images/Decorative_cube.png"
             alt="decorative cube"
-            fill
+            width={100}
+            height={100}
             placeholder="empty"
             priority
-            sizes="(max-width: 768px) 40px, 64px"
           />
         </div>
 

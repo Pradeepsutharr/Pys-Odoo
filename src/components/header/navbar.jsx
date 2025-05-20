@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 function Navbar() {
   const [headerFixed, setHeaderFixed] = useState(false);
@@ -36,7 +37,7 @@ function Navbar() {
   };
 
   return (
-    <header>
+    <header className="relative z-10">
       {/* Desktop Navbar */}
       <div
         className={`hidden lg:flex justify-between items-center px-10 py-4 mx-auto container-fluid ${
@@ -45,7 +46,13 @@ function Navbar() {
       >
         <div className="po_logo">
           <Link href="/">
-            <img src="/images/Logo.svg" alt="pysquad_logo" />
+            <Image
+              src="/images/Logo.svg"
+              alt="pysquad_logo"
+              width={150}
+              height={30}
+              priority
+            />
           </Link>
         </div>
 
@@ -102,7 +109,13 @@ function Navbar() {
       >
         <div className="po_logo">
           <Link href="/">
-            <img src="/images/Logo.svg" alt="pysquad_logo" />
+            <Image
+              src="/images/Logo.svg"
+              alt="pysquad_logo"
+              width={150}
+              height={30}
+              priority
+            />
           </Link>
         </div>
 
@@ -134,7 +147,13 @@ function Navbar() {
         <div className="flex">
           <div className="po_logo" onClick={() => setIsMenuOpen(false)}>
             <Link href="/">
-              <img src="/images/Logo.svg" alt="pysquad_logo" />
+              <Image
+                src="/images/Logo.svg"
+                alt="pysquad_logo"
+                priority
+                width={200}
+                height={30}
+              />
             </Link>
           </div>
 
