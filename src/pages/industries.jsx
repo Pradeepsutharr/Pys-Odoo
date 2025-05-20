@@ -2,12 +2,8 @@ import SEO from "@/components/seo";
 import React from "react";
 import dynamic from "next/dynamic";
 
-const IndustryPage = dynamic(() => import("../components/industries/index"), {
-  ssr: false,
-});
-const BlogSection = dynamic(() => import("../components/blog/blogSec"), {
-  ssr: false,
-});
+const IndustryPage = dynamic(() => import("../components/industries/index"));
+const BlogSection = dynamic(() => import("../components/blog/blogSec"));
 
 const industries = () => {
   return (

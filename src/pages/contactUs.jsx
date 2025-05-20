@@ -2,9 +2,7 @@ import React from "react";
 import SEO from "@/components/seo";
 import dynamic from "next/dynamic";
 
-const ContactPage = dynamic(() => import("../components/contact us/index"), {
-  ssr: false,
-});
+const ContactPage = dynamic(() => import("../components/contact us/index"));
 
 const contactUs = () => {
   return (

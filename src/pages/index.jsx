@@ -1,9 +1,7 @@
 import SEO from "@/components/seo";
 import dynamic from "next/dynamic";
 
-const HomePage = dynamic(() => import("../components/home/index"), {
-  ssr: false,
-});
+const HomePage = dynamic(() => import("../components/home/index"));
 
 export default function Home() {
   return (
