@@ -49,8 +49,8 @@ function Navbar() {
             <Image
               src="/images/Logo.svg"
               alt="pysquad_logo"
-              width={150}
-              height={30}
+              width={140}
+              height={25}
               priority
             />
           </Link>
@@ -112,8 +112,8 @@ function Navbar() {
             <Image
               src="/images/Logo.svg"
               alt="pysquad_logo"
-              width={150}
-              height={30}
+              width={140}
+              height={25}
               priority
             />
           </Link>
@@ -151,8 +151,8 @@ function Navbar() {
                 src="/images/Logo.svg"
                 alt="pysquad_logo"
                 priority
-                width={200}
-                height={30}
+                width={140}
+                height={25}
               />
             </Link>
           </div>

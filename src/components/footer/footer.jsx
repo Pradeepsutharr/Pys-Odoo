@@ -10,11 +10,12 @@ const Footer = () => {
           <div className="col-12 md:col-4 lg:col-4">
             <Link href="/">
               <Image
-                src="/images//logo.svg"
+                className="h-auto"
+                src="/images/logo.svg"
                 alt="Pysquad Logo"
-                width={200}
-                height={30}
-                priority
+                width={140}
+                height={25}
+                loading="lazy"
               />
             </Link>
             <p className="my-4 max-w-xs">

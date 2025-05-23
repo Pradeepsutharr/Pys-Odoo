@@ -25,7 +25,7 @@ const IndustriesSlider = () => {
                 alt="Industries"
                 width={380}
                 height={400}
-                priority
+                loading="lazy"
               />
             </div>
           </div>
@@ -81,7 +81,7 @@ const IndustriesSlider = () => {
                           alt={industry.title}
                           width={48}
                           height={48}
-                          priority
+                          loading="lazy"
                         />
                       </div>
                       <h3 className="text-heading text-xl font-bold mb-2">

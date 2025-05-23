@@ -182,7 +182,7 @@ const ContactForm = () => {
               alt="Contact"
               width={500}
               height={500}
-              priority
+              loading="lazy"
               className="rounded-2xl lg:ms-auto"
             />
           </div>

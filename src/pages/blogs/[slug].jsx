@@ -124,7 +124,7 @@ const BlogDetails = () => {
                   alt="Blog Banner"
                   width={1140}
                   height={300}
-                  priority
+                  loading="lazy"
                   className="rounded-lg"
                 />
               )}
@@ -185,7 +185,7 @@ const BlogDetails = () => {
                             alt={blog.title}
                             width={60}
                             height={60}
-                            priority
+                            loading="lazy"
                             className="rounded-md "
                           />
                           <p className="text-sm font-medium text-heading hover:text-primary ">

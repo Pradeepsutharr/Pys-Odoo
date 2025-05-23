@@ -17,7 +17,7 @@ const AllServices = () => {
                     alt={s.title}
                     width={45}
                     height={45}
-                    priority
+                    loading="lazy"
                   />
                 </div>
 
