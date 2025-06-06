@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import SplitText from "../splitText";
 
 const Hero = () => {
   return (
@@ -27,11 +26,16 @@ const Hero = () => {
         </div>
 
         <div className="hero-headline col-12 lg:col-10 mx-auto">
-          <h1 className="capitalize leading-snug text-5xl lg:text-[90px] font-bold text-center">
-            <SplitText
+          <h1
+            data-aos="fade-up"
+            data-aos-duration="1500"
+            className="capitalize leading-snug text-5xl lg:text-[90px] font-bold text-center"
+          >
+            {/* <SplitText
               text="simplify your business with odoo ERP"
               type="word"
-            />
+            /> */}
+            simplify your business with odoo ERP
           </h1>
         </div>
 

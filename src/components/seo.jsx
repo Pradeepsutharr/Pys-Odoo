@@ -32,7 +32,7 @@ const SEO = ({
           "Python, Django, Odoo, React, Next.js, API development, ERP solutions, AI solutions, web development, software development"
         }`}
       />
-      <meta property="og:title" content={ogTitle ? ogTitle : "Pysquad"} />
+      <meta property="og:title" content={ogTitle ?? "Pysquad"} />
       <meta
         property="og:description"
         content={`${
@@ -40,10 +40,7 @@ const SEO = ({
           "Building Web, app, cloud and AI solutions. PySquad is helping to various industries like eCommerce, LMS, CMS, ERP, Logistics, Pharma, Media etc..."
         }`}
       />
-      <meta
-        property="og:url"
-        content={ogUrl ? ogUrl : "https://odoo.pysquad.com"}
-      />
+      <meta property="og:url" content={ogUrl ?? "https://odoo.pysquad.com"} />
       <meta property="og:site_name" content="pysquad" />
       <meta property="og:type" content="website" />
       <meta property="og:locale" content="en_US" />
@@ -62,9 +59,7 @@ const SEO = ({
       <meta
         property="og:image"
         content={
-          ogImage
-            ? ogImage
-            : "https://www.pysquad.com/assets/img/logo/pysquad-logo.png"
+          ogImage ?? "https://www.pysquad.com/assets/img/logo/pysquad-logo.png"
         }
       />
     </Head>

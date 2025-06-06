@@ -82,7 +82,10 @@ const BlogDetails = ({ blogDetails }) => {
           "Explore the latest insights and tech trends on the Pysquad blog."
         }
         ogUrl={`https://odoo.pysquad.com/blogs/${blogDetails.slug}`}
-        keywords={blogDetails.keywords || "pysquad blogs, python blogs"}
+        keywords={
+          blogDetails.keywords ||
+          "pysquad blogs, python blogs, odoo blogs, erp blogs"
+        }
         ogImage={blogDetails.bg_image}
       />
       <section className="py-10 relative">

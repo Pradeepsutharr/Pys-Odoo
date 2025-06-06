@@ -32,7 +32,7 @@ const Blogs = ({ blogs }) => {
         pageDescription="Explore expert blogs on Odoo ERP solutions, implementation tips, industry use-cases, and digital transformation strategies. Stay updated with the latest insights from Pysquad’s certified Odoo experts."
         keywords="Odoo ERP blogs, Odoo implementation tips, ERP case studies, Odoo best practices, ERP development insights, Pysquad blog, Odoo industry trends"
         ogTitle="Odoo ERP Blogs & Insights | Tips, Trends & Best Practices – Odoo.Pysquad.com"
-        ogUrl="https://odoo.pysquad.com/blogs"
+        ogUrl="https://odoo.pysquad.com/"
       />
       <section className="py-2">
         <div className="flex flex-col items-center bg-[#151922] justify-center py-20 text-center">
