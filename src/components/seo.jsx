@@ -1,9 +1,16 @@
 import Head from "next/head";
 
-const SEO = ({ pageTitle, pageDescription, keywords, ogImage }) => (
+const SEO = ({
+  pageTitle,
+  pageDescription,
+  keywords,
+  ogImage,
+  ogTitle,
+  ogUrl,
+}) => (
   <>
     <Head>
-      <title>{`${pageTitle} | PySquad`}</title>
+      <title>{pageTitle}</title>
       <link rel="icon" href="/favicon.png" />
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       <meta
@@ -25,7 +32,7 @@ const SEO = ({ pageTitle, pageDescription, keywords, ogImage }) => (
           "Python, Django, Odoo, React, Next.js, API development, ERP solutions, AI solutions, web development, software development"
         }`}
       />
-      <meta property="og:title" content="PySquad" />
+      <meta property="og:title" content={ogTitle ? ogTitle : "Pysquad"} />
       <meta
         property="og:description"
         content={`${
@@ -33,7 +40,10 @@ const SEO = ({ pageTitle, pageDescription, keywords, ogImage }) => (
           "Building Web, app, cloud and AI solutions. PySquad is helping to various industries like eCommerce, LMS, CMS, ERP, Logistics, Pharma, Media etc..."
         }`}
       />
-      <meta property="og:url" content="https://www.pysquad.com" />
+      <meta
+        property="og:url"
+        content={ogUrl ? ogUrl : "https://odoo.pysquad.com"}
+      />
       <meta property="og:site_name" content="pysquad" />
       <meta property="og:type" content="website" />
       <meta property="og:locale" content="en_US" />
@@ -47,9 +57,16 @@ const SEO = ({ pageTitle, pageDescription, keywords, ogImage }) => (
       <meta name="twitter:site" content="@pysquad_info" />
 
       <meta name="robots" content="follow, index, max-image-preview:large" />
-      <link rel="canonical" href={`https://www.pysquad.com`} />
+      <link rel="canonical" href={`https://odoo.pysquad.com`} />
 
-      <meta property="og:image" content={ogImage} />
+      <meta
+        property="og:image"
+        content={
+          ogImage
+            ? ogImage
+            : "https://www.pysquad.com/assets/img/logo/pysquad-logo.png"
+        }
+      />
     </Head>
   </>
 );

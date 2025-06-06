@@ -5,17 +5,10 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link rel="icon" type="image/png" href="/favicon.ico" />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+     
         <link rel="dns-prefetch" href="https://storage.googleapis.com" />
 
         {/* Preconnect */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
         <link
           rel="preconnect"
           href="https://storage.googleapis.com"
@@ -25,7 +18,7 @@ export default function Document() {
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-          referrerpolicy="no-referrer"
+          referrerPolicy="no-referrer"
           integrity="sha512-...your-integrity-code..."
           crossOrigin="anonymous"
         />

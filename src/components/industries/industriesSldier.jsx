@@ -25,7 +25,8 @@ const IndustriesSlider = () => {
                 alt="Industries"
                 width={380}
                 height={400}
-                loading="lazy"
+                priority
+                 style={{ width: '380px', height: '400px' }} 
               />
             </div>
           </div>
@@ -43,7 +44,7 @@ const IndustriesSlider = () => {
               <Swiper
                 className="mySwiper "
                 spaceBetween={30}
-                loop={true}
+               loop={industries.length > 2}
                 modules={[Pagination, Navigation, Autoplay]}
                 navigation={{
                   prevEl: ".custom-prev",
@@ -81,7 +82,8 @@ const IndustriesSlider = () => {
                           alt={industry.title}
                           width={48}
                           height={48}
-                          loading="lazy"
+                          style={{ width: 48, height: 48 }}
+                          priority
                         />
                       </div>
                       <h3 className="text-heading text-xl font-bold mb-2">

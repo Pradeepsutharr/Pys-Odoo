@@ -5,12 +5,12 @@ const ReviewCard = ({ name, title, imageSrc, rating = 5, description }) => {
     <div className="max-w-md md:max-w-2xl bg-gray-50 rounded-xl shadow-md p-7 flex md:flex-row mx-auto flex-col gap-6 items-center relative">
       <div className="relative shrink-0 ">
         <Image
-          className="rounded-lg h-auto"
           src={imageSrc}
           alt={name}
-          width={180}
-          height={180}
-          loading="lazy"
+          width={200}
+          height={200}
+          priority
+          className="rounded-lg object-cover"
         />
         <div className="absolute bottom-0 left-14 translate-x-6 translate-y-1/2 bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center text-sm font-semibold shadow-md">
           <svg

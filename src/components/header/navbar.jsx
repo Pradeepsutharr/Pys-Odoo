@@ -49,8 +49,9 @@ function Navbar() {
             <Image
               src="/images/Logo.svg"
               alt="pysquad_logo"
-              width={140}
-              height={25}
+              width={150}
+              height={30}
+              style={{ width: 150, height: 30 }}
               priority
             />
           </Link>
@@ -112,8 +113,9 @@ function Navbar() {
             <Image
               src="/images/Logo.svg"
               alt="pysquad_logo"
-              width={140}
-              height={25}
+              width={150}
+              height={30}
+              style={{ width: 150, height: 30 }}
               priority
             />
           </Link>
@@ -151,8 +153,9 @@ function Navbar() {
                 src="/images/Logo.svg"
                 alt="pysquad_logo"
                 priority
-                width={140}
-                height={25}
+                width={200}
+                height={30}
+                style={{ width: 200, height: 30 }}
               />
             </Link>
           </div>
@@ -199,9 +202,9 @@ function Navbar() {
             <div className="text-sm font-semibold">Contact Us</div>
             <div className="text-sm mt-2 flex">
               <span>📍</span>
-              <address>
+              <a>
                 A 605, Shilp Aaron, Sindhubhavan Road, Ahmedabad
-              </address>
+              </a>
             </div>
             <div className="text-sm mt-2 flex">
               <span>📧</span>

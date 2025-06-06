@@ -14,7 +14,7 @@ const BlogCard = ({ slug, title, tag, date, imageUrl }) => {
               alt={title}
               width={400}
               height={200}
-              loading="lazy"
+              priority
             />
           ) : (
             <Skeleton height={192} />

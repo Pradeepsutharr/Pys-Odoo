@@ -5,24 +5,24 @@ import SplitText from "../splitText";
 
 const Hero = () => {
   return (
-    <section className="hero relative py-20 ">
+    <section className="hero py-20 relative">
       <Image
         src="/images/hero-bg.png"
         alt="banner"
         fill
-        sizes="max-w-[1920]"
-        className="z-0 h-auto"
+        className="z-0"
         priority
       />
       <div className="container relative text-center ">
         <div className="absolute lg:left-10 left-[40%] w-20 h-20 lg:top-[-8%] top-[-20%] md:block hidden">
           <Image
-            className="animate-slow-spin"
+            className="animate-slow-spin object-contain"
             src="/images/Decorative_cube.png"
             alt="decorative cube"
-            width={91}
-            height={78}
-            loading="lazy"
+            width={100}
+            height={100}
+            placeholder="empty"
+            priority
           />
         </div>
 

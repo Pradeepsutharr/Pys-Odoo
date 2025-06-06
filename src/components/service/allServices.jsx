@@ -17,7 +17,8 @@ const AllServices = () => {
                     alt={s.title}
                     width={45}
                     height={45}
-                    loading="lazy"
+                    priority
+                     style={{ width: 45, height: 45 }} 
                   />
                 </div>
 

@@ -41,6 +41,7 @@ const ServiceDetailsArea = () => {
                 pageTitle={`${item.title} | Certified Odoo ERP Experts | Pysquad.com`}
                 pageDescription={`Discover expert ${item.title} services with certified Odoo professionals at Pysquad. Tailored ERP solutions to streamline your business operations and boost productivity.`}
                 keywords={`${item.title} Pysquad Odoo Services, Odoo ERP Experts, Odoo implementation, business automation, ERP integration`}
+                ogTitle={`${item.title} | Certified Odoo ERP Experts | Pysquad.com`}
               />
               {isLoading ? (
                 <div className="container">
@@ -70,7 +71,8 @@ const ServiceDetailsArea = () => {
                         alt={item.title}
                         width={800}
                         height={600}
-                        loading="lazy"
+                        priority
+                        placeholder="empty"
                         className="rounded-md"
                       />
                     )}
@@ -100,10 +102,11 @@ const ServiceDetailsArea = () => {
                     <div className="col-12 md:col-6 lg:col-6">
                       <div className="flex flex-wrap">
                         <Image
-                          className="md:ml-auto h-auto"
+                          className="md:ml-auto w-auto"
                           src="/images/service-circle-image.png"
                           alt="Customization Icons"
-                          loading="lazy"
+                          priority
+                          placeholder="empty"
                           width={250}
                           height={250}
                         />
@@ -124,7 +127,7 @@ const ServiceDetailsArea = () => {
                             alt="Flexible Solutions"
                             width={40}
                             height={40}
-                            loading="lazy"
+                            priority
                           />
                         </div>
                         <div className="col-9">
@@ -147,7 +150,7 @@ const ServiceDetailsArea = () => {
                             alt="24/7 Support"
                             width={40}
                             height={40}
-                            loading="lazy"
+                            priority
                           />
                         </div>
                         <div className="col-9">

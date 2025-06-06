@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://odoo.pysquad.com/sitemap.xml
+Host: https://odoo.pysquad.com
